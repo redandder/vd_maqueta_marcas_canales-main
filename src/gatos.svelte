@@ -35,11 +35,8 @@
 
       <!-- Iteramos la data para visualizar c/ entidad -->
       {#each series as serie}
-
       <div class="person-container">
-
         {#if serie.Tipo == "Serializada"}
-        
           <img
             class="person"
             src="public/images/GatitoDer.svg"
@@ -81,7 +78,9 @@
                 <div class= "manchas">
         <Mancha cant={manchaVentas(serie.Ventas)} tamano={diamRating(serie.Rating)*0.627} altura= {diamRating(serie.Rating)*0.817}/>
         </div>
-        
+      <div class="nombre-container">
+        <p>{serie.Nombre}</p>
+      </div>
         
 
       </div>
@@ -159,6 +158,14 @@
      
   }
 
-
+  .nombre-container {
+    position: absolute;
+    text-align: center;
+    bottom: -30%;
+    left:0%;
+    right: 0%;
+    font-size: 14px;
+    width: 100px;
+  }
 
   </style>
