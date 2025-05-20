@@ -1,9 +1,11 @@
 <script>
   import * as d3 from "d3"
   import atletas from "/src/data/athletes.csv"
-  // import atletas from "/src/data/athletes.json"
+  import series from "/src/data/SeriesYJuguetes.json"
+  import Gatos from "/src/gatos.svelte"
 
   console.log("atletas", atletas)
+  console.log("series", series)
 
   /* 1. Escala para participaciones (cuantitativo > grosor) */
   const minMaxParticipations = d3.extent(atletas, (d) => d.participations)
@@ -46,10 +48,10 @@
     />
   </div>
 
-    <!-- Conedor de las entidades -->
+    <!-- Conedor de las entidades 
     <div class="container">
       
-      <!-- Iteramos la data para visualizar c/ entidad -->
+
       {#each atletas as atleta}
         <div class="person-container">
           <div
@@ -64,9 +66,10 @@
           </div>
         </div>
       {/each}
-      <!-- Fin iteración -->
+     Fin iteración 
 
-    </div>
+    </div>-->
+    <Gatos series={series} />
 </main>
 
 <style>
