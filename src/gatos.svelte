@@ -75,15 +75,12 @@
 
             ">
       {/if}
+        <div class= "manchas">
+        <Mancha cant={manchaVentas(serie.Ventas)} tamano={diamRating(serie.Rating)*0.674} altura= {diamRating(serie.Rating)}/>
+        </div>
         <div class="person-color">
         <Color tipo={serie.Tipo} tamano={diamRating(serie.Rating)*0.674} altura= {diamRating(serie.Rating)} color={colorDuracion(serie.Duracion)}/>
         </div>
-                <div class= "manchas">
-        <Mancha cant={manchaVentas(serie.Ventas)} tamano={diamRating(serie.Rating)*0.627} altura= {diamRating(serie.Rating)*0.817}/>
-        </div>
-        
-        
-
       </div>
       <!--<div class="nombre">
         <p>{serie.Nombre}</p>
@@ -95,7 +92,7 @@
 <style>
 
       .container{
-        display: flex;
+    display: flex;
     flex-wrap: wrap;
     align-content: space-around;
     gap: 2px;
@@ -104,12 +101,13 @@
     width: 1130px;
     height: 550px;
   }
-      .person-container {
-        display: flex;
-        position: relative;
-        align-items: flex-end;
-    width: 200px;
-    height: 330px;
+  .person-container {
+    display: flex;
+    position: relative;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    width: 120px;
+    height: 188px;
     /*
     display: flex;
     
@@ -125,24 +123,14 @@
         /*
     bottom: -10px;
     */
-    width: 100%;
-    height:100%;
-    z-index: 3;
-  
 
+    z-index: 3;
   }
   .manchas{
-    display: flex;
-    position: absolute;
-    align-items: flex-end;
+      bottom: -6px;
+    position: absolute; 
     mix-blend-mode: multiply;
-    bottom: 22px;
-   
-    left: 2%;
-   
- 
-    z-index: 2;
-
+    z-index: 3;
   }
     .person-color{
     position: absolute;
@@ -150,13 +138,7 @@
     left: 2%;
     right: 3.10%;
     */
-    bottom: -6px;  
-    
- 
-
-   
-
-     
+    bottom: -6px;       
   }
 
 
