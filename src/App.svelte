@@ -75,6 +75,13 @@
         <div class="guia-box">
           <p>Cantidad de episodios</p>
         </div>
+        <div class="guia-box">
+          <img class="gatitoImg" src="public\images\GatitoDosManos.svg" alt="" style="height: 100px">
+          <img class="gatitoImg" src="public\images\GatitoDosManos.svg" alt="" style="height: 60px; top: 50%; transform: translateY(50%);">
+        </div>
+        <div class="guia-box">
+          <p>Rating</p>
+        </div>
     <button on:click={cerrarPopup}>Cerrar</button>
   </div>
   </div>
