@@ -63,8 +63,25 @@
           <img class="gatitoImg" src="public\images\GatitoIzq.svg" alt="" style="">
           <p>Episódica</p>
         </div>
-
       </div>
+        <div class="guia-box">
+          <div class="circulo-color" style="background-color: #FDF8F2"></div>
+          <div class="circulo-color" style="background-color: #EFCFA9"></div>
+          <div class="circulo-color" style="background-color: #DF9F53"></div>
+          <div class="circulo-color" style="background-color: #AC6C20"></div>
+          <div class="circulo-color" style="background-color: #6C4414"></div>
+          
+        </div>
+        <div class="guia-box">
+          <p>Cantidad de episodios</p>
+        </div>
+        <div class="guia-box">
+          <img class="gatitoImg" src="public\images\GatitoDosManos.svg" alt="" style="height: 100px">
+          <img class="gatitoImg" src="public\images\GatitoDosManos.svg" alt="" style="height: 60px; top: 50%; transform: translateY(50%);">
+        </div>
+        <div class="guia-box">
+          <p>Rating</p>
+        </div>
     <button on:click={cerrarPopup}>Cerrar</button>
   </div>
   </div>
@@ -120,6 +137,7 @@
 <style>
   main {
     width: 100%;
+    font-family: 'Short Stack', cursive;
   }
   .header {
     display: flex;
@@ -205,14 +223,25 @@
     border-width: 10px 10px 10px 10px;
     border-image: url("public/images/border.svg") 10 10 10 10 stretch stretch;
     background-color: unset;
-    font-family: 'Short Stack', cursive;
     font-size: 1em;
     color: #3c3c3c;
     width: 300px;
     font-size: 18px;
     user-select: none;
   }
-  .guia-button:hover {
+  button {
+    text-align: center;
+    border-style: solid;
+    border-width: 10px 10px 10px 10px;
+    border-image: url("public/images/border.svg") 10 10 10 10 stretch stretch;
+    background-color: unset;
+    font-size: 1em;
+    color: #3c3c3c;
+    width: 300px;
+    font-size: 18px;
+    user-select: none;
+  }
+  button:hover {
     opacity: 0.5;
   }
   .guia-visualizacion {
@@ -260,5 +289,17 @@
     align-items: center;
     margin-top: 10px;
     margin-bottom: 10px;
+  }
+  .gatito-colores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .circulo-color {
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
   }
 </style>
