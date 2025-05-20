@@ -29,6 +29,7 @@
     .range(["#ed334e", "#000000", "#fbb132", "#009fe3", "#00963f"])
 
   function abrirPopup() {
+    const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
     document.getElementById('guia-visualizacion').classList.remove('hidden');
     document.getElementById('overlay').classList.remove('hidden');
     document.body.style.overflow = "hidden";
