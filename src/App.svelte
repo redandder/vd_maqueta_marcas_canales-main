@@ -33,7 +33,7 @@
     document.getElementById('guia-visualizacion').classList.remove('hidden');
     document.getElementById('overlay').classList.remove('hidden');
     document.body.style.overflow = "hidden";
-    document.body.style.paddingRight = `${scrollBarWidth}px`;
+    document.body.style.paddingRight = "${scrollBarWidth}px";
   }
 
   function cerrarPopup() {
@@ -119,7 +119,6 @@
 
 <style>
   main {
-    transition: padding-right 0.2s ease;
     width: 100%;
   }
   .header {
