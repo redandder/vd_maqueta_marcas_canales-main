@@ -49,7 +49,22 @@
 <main>
   <div id="overlay" class="hidden">
     <div id="guia-visualizacion" class="guia-visualizacion hidden">
-      <p>HOLLOW KNIGHT ES UN VIDEOJUEGO INDIE EN EL CUAL JUGAS COMO EL CABALLERO Y EXPLORAS EL MUNDO DE HOLLOWNEST</p>
+      <p>HOLLOW KNIGHT ES UN VIDEOJUEGO INDIE EN EL CUAL JUGAS COMO EL CABALLERO Y EXPLORAS EL MUNDO DE HALLOWNEST</p>
+      <div class="guia-box">
+        <div gatito-item>
+          <img class="gatitoImg" src="public\images\GatitoDer.svg" alt="" style="">
+          <p>Serializada</p>
+        </div>
+        <div gatito-item>
+          <img class="gatitoImg" src="public\images\GatitoDosManos.svg" alt="" style="">
+          <p>Ambas</p>
+        </div>
+        <div gatito-item>
+          <img class="gatitoImg" src="public\images\GatitoIzq.svg" alt="" style="">
+          <p>Episódica</p>
+        </div>
+
+      </div>
     <button on:click={cerrarPopup}>Cerrar</button>
   </div>
   </div>
@@ -206,7 +221,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 500px;
+    width: 800px;
     padding: 20px;
     background: white;
     z-index: 200;
@@ -229,5 +244,22 @@
     align-items: center;
     z-index: 100;
     background-color: #3c3c3c;
+  }
+  .guia-box {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  .gatitoImg {
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+  }
+  .gatito-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 </style>
