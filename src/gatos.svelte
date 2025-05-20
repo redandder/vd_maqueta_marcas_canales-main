@@ -12,6 +12,12 @@
         .domain([ 50, 100, 150,200])
         .range(["#FDF8F2", "#EFCFA9", "#DF9F53", "#AC6C20", "#6C4414"])
 
+  function imagenGato(tipo) {
+    if (tipo == "Episodica") return "public/images/GatitoIzq.svg";
+    if (tipo == "Serializada") return "public/images/GatitoDer.svg";
+    return "public/images/GatitoDosManos.svg";
+  }
+
 </script>
 
 <div class="container">
@@ -21,7 +27,7 @@
         <div class="person-container">
           <img
             class="person"
-            src="public\images\GatitoDer.svg"
+            src="{imagenGato(serie.Tipo)}"
             alt=""
             style="
               width: {diamRating(serie.Rating)}px; 
