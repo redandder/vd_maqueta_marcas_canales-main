@@ -51,15 +51,15 @@
     <div id="guia-visualizacion" class="guia-visualizacion hidden">
       <p>HOLLOW KNIGHT ES UN VIDEOJUEGO INDIE EN EL CUAL JUGAS COMO EL CABALLERO Y EXPLORAS EL MUNDO DE HALLOWNEST</p>
       <div class="guia-box">
-        <div gatito-item>
+        <div class="gatito-item">
           <img class="gatitoImg" src="public\images\GatitoDer.svg" alt="" style="">
           <p>Serializada</p>
         </div>
-        <div gatito-item>
+        <div class="gatito-item">
           <img class="gatitoImg" src="public\images\GatitoDosManos.svg" alt="" style="">
           <p>Ambas</p>
         </div>
-        <div gatito-item>
+        <div class="gatito-item">
           <img class="gatitoImg" src="public\images\GatitoIzq.svg" alt="" style="">
           <p>Episódica</p>
         </div>
