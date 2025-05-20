@@ -28,9 +28,31 @@
     .domain(["América", "África", "Asia", "Europa", "Oceanía"])
     .range(["#ed334e", "#000000", "#fbb132", "#009fe3", "#00963f"])
 
+  function abrirPopup() {
+    document.getElementById('guia-visualizacion').classList.remove('hidden');
+    document.getElementById('overlay').classList.remove('hidden');
+    document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = `${scrollBarWidth}px`;
+  }
+
+  function cerrarPopup() {
+    document.getElementById('guia-visualizacion').classList.add('hidden');
+    document.getElementById('overlay').classList.add('hidden');
+    document.body.style.overflow = "";
+    document.body.style.paddingRight = "";
+  }
+
 </script>
 
+
 <main>
+  <div id="overlay" class="hidden">
+    <div id="guia-visualizacion" class="guia-visualizacion hidden">
+      <p>HOLLOW KNIGHT ES UN VIDEOJUEGO INDIE EN EL CUAL JUGAS COMO EL CABALLERO Y EXPLORAS EL MUNDO DE HOLLOWNEST</p>
+    <button on:click={cerrarPopup}>Cerrar</button>
+  </div>
+  </div>
+  
   <div class="header">
     <img src="/images/logo_referencias.svg" width="190" alt="anillos" />
     <h3 class="headline">
@@ -69,10 +91,21 @@
      Fin iteración 
 
     </div>-->
+
+    <div class="guia-container">
+      <button class="guia-button" on:click={abrirPopup}>
+        <p>Guía de visualización</p>
+      </button>
+    </div>
+
     <Gatos series={series} />
 </main>
 
 <style>
+  main {
+    transition: padding-right 0.2s ease;
+    width: 100%;
+  }
   .header {
     display: flex;
     justify-content: center;
@@ -138,5 +171,62 @@
   .referencias {
     margin-top: 50px;
     margin-bottom: 20px;
+  }
+
+  .guia-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 900px;
+    gap: 30px;
+    margin-bottom: 100px;
+    flex-wrap: wrap;
+  }
+
+  .guia-button {
+    text-align: center;
+    border-style: solid;
+    border-width: 10px 10px 10px 10px;
+    border-image: url("public/images/border.svg") 10 10 10 10 stretch stretch;
+    background-color: unset;
+    font-family: 'Short Stack', cursive;
+    font-size: 1em;
+    color: #3c3c3c;
+    width: 300px;
+    font-size: 18px;
+    user-select: none;
+  }
+  .guia-button:hover {
+    opacity: 0.5;
+  }
+  .guia-visualizacion {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    padding: 20px;
+    background: white;
+    z-index: 200;
+    text-align: center;
+    border-style: solid;
+    border-width: 10px 10px 10px 10px;
+    border-image: url("public/images/border.svg") 10 10 10 10 stretch stretch;
+  }
+  .hidden {
+    display: none;
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    background-color: #3c3c3c;
   }
 </style>
