@@ -20,7 +20,7 @@
         const maxVentas= d3.max(series, (d) => d.Ventas)
     const minVentas = d3.min(series, (d) => d.Ventas)
     let manchaVentas=d3.scaleLinear()
-        .domain([minVentas, maxVentas]).range([1, 11])
+        .domain([minVentas, maxVentas]).range([1, 5])
   //function imagenGato(tipo) {
     //if (tipo == "Episodica") return "public/images/GatitoIzq.svg";
     //if (tipo == "Serializada") return "public/images/GatitoDer.svg";
@@ -78,18 +78,13 @@
         <div class="person-color">
         <Color tipo={serie.Tipo} tamano={diamRating(serie.Rating)*0.674} altura= {diamRating(serie.Rating)} color={colorDuracion(serie.Duracion)}/>
         </div>
-                <div class= "manchas">
-        <Mancha cant={manchaVentas(serie.Ventas)} tamano={diamRating(serie.Rating)*0.627} altura= {diamRating(serie.Rating)*0.817}/>
-        </div>
+
       <div class="nombre-container">
         <p>{serie.Nombre}</p>
       </div>
         
 
       </div>
-      <!--<div class="nombre">
-        <p>{serie.Nombre}</p>
-      </div>-->
     {/each}
       <!-- Fin iteración -->
 
@@ -97,20 +92,23 @@
 <style>
 
       .container{
-    display: flex;
+        display: flex;
+   
+    justify-content: center;
+    align-items: end;
+    margin: auto;
     flex-wrap: wrap;
-    align-content: space-around;
-    gap: 2px;
-    padding-left: 110px;
-    padding-right: 0px;
-    width: 1130px;
-    height: 550px;
+   
+    gap: 30px;
+  
+
   }
   .person-container {
     display: flex;
     position: relative;
     align-items: flex-end;
-    justify-content: space-evenly;
+    justify-content: center;
+    flex: 180px 0 0;
     width: 120px;
     height: 188px;
     /*
@@ -155,9 +153,9 @@
   .nombre-container {
     position: absolute;
     text-align: center;
-    bottom: -30%;
-    left:0%;
-    right: 0%;
+    
+    bottom: -40%;
+ 
     font-size: 14px;
     width: 100px;
   }
