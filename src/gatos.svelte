@@ -34,6 +34,7 @@
 <div class="container">
 
       <!-- Iteramos la data para visualizar c/ entidad -->
+    
       {#each series as serie}
       <div class="person-container">
         {#if serie.Tipo == "Serializada"}
@@ -43,9 +44,7 @@
             alt=""
             style="
               width: {diamRating(serie.Rating)*0.674}px; 
-              height: {diamRating(serie.Rating)}px; 
-
-            ">
+              height: {diamRating(serie.Rating)}px; ">
 
         {/if}
         {#if serie.Tipo == "Episodica"}
@@ -72,6 +71,7 @@
 
             ">
       {/if}
+
         <div class= "manchas">
         <Mancha cant={manchaVentas(serie.Ventas)} tamano={diamRating(serie.Rating)*0.674} altura= {diamRating(serie.Rating)}/>
         </div>
@@ -84,23 +84,23 @@
       </div>
 
       </div>
-    {/each}
-      <!-- Fin iteración -->
 
+    {/each}
     </div>
+
 <style>
 
       .container{
         display: flex;
-   
     justify-content: center;
     align-items: end;
     margin: auto;
     flex-wrap: wrap;
-   
-    gap: 30px;
+   gap:30px;
   
-
+  
+  
+  
   }
   .person-container {
     display: flex;
@@ -110,6 +110,7 @@
     flex: 180px 0 0;
     width: 120px;
     height: 188px;
+    margin:auto;
     /*
     display: flex;
     
