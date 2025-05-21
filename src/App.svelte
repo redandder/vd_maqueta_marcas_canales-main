@@ -52,15 +52,15 @@
       <p>HOLLOW KNIGHT ES UN VIDEOJUEGO INDIE EN EL CUAL JUGAS COMO EL CABALLERO Y EXPLORAS EL MUNDO DE HALLOWNEST</p>
       <div class="guia-box">
         <div class="gatito-item">
-          <img class="gatitoImg" src="public\images\GatitoDer.svg" alt="" style="">
+          <img class="gatitoImg" src="./images/GatitoDer.svg" alt="" style="">
           <p>Serializada</p>
         </div>
         <div class="gatito-item">
-          <img class="gatitoImg" src="public\images\GatitoDosManos.svg" alt="" style="">
+          <img class="gatitoImg" src="./images/GatitoDosManos.svg" alt="" style="">
           <p>Ambas</p>
         </div>
         <div class="gatito-item">
-          <img class="gatitoImg" src="public\images\GatitoIzq.svg" alt="" style="">
+          <img class="gatitoImg" src="./images/GatitoIzq.svg" alt="" style="">
           <p>Episódica</p>
         </div>
       </div>
@@ -76,8 +76,8 @@
           <p>Cantidad de episodios</p>
         </div>
         <div class="guia-box">
-          <img class="gatitoImg" src="public\images\GatitoDosManos.svg" alt="" style="height: 100px">
-          <img class="gatitoImg" src="public\images\GatitoDosManos.svg" alt="" style="height: 60px; top: 50%; transform: translateY(50%);">
+          <img class="gatitoImg" src="./images/GatitoDosManos.svg" alt="" style="height: 100px">
+          <img class="gatitoImg" src="./images/GatitoDosManos.svg" alt="" style="height: 60px; top: 50%; transform: translateY(50%);">
         </div>
         <div class="guia-box">
           <p>Rating</p>

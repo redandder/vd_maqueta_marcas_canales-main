@@ -22,9 +22,9 @@
     let manchaVentas=d3.scaleLinear()
         .domain([minVentas, maxVentas]).range([1, 5])
   //function imagenGato(tipo) {
-    //if (tipo == "Episodica") return "public/images/GatitoIzq.svg";
-    //if (tipo == "Serializada") return "public/images/GatitoDer.svg";
-    //return "public/images/GatitoDosManos.svg";
+    //if (tipo == "Episodica") return "./images/GatitoIzq.svg";
+    //if (tipo == "Serializada") return "./images/GatitoDer.svg";
+    //return "./images/GatitoDosManos.svg";
   //}
 
 
@@ -39,7 +39,7 @@
         {#if serie.Tipo == "Serializada"}
           <img
             class="person"
-            src="public/images/GatitoDer.svg"
+            src="./images/GatitoDer.svg"
             alt=""
             style="
               width: {diamRating(serie.Rating)*0.674}px; 
@@ -52,7 +52,7 @@
  
           <img
             class="person"
-            src="public/images/GatitoIzq.svg"
+            src="./images/GatitoIzq.svg"
             alt=""
             style="
               width: {diamRating(serie.Rating)*0.674}px; 
@@ -64,7 +64,7 @@
       {#if serie.Tipo == "Ambas"}
           <img
             class="person"
-            src="public/images/GatitoDosManos.svg"
+            src="./images/GatitoDosManos.svg"
             alt=""
             style="
               width: {diamRating(serie.Rating)*0.674}px; 
