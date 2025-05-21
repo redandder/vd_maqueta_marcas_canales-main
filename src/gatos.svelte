@@ -20,7 +20,7 @@
         const maxVentas= d3.max(series, (d) => d.Ventas)
     const minVentas = d3.min(series, (d) => d.Ventas)
     let manchaVentas=d3.scaleLinear()
-        .domain([minVentas, maxVentas]).range([1, 11])
+        .domain([minVentas, maxVentas]).range([1, 5])
   //function imagenGato(tipo) {
     //if (tipo == "Episodica") return "public/images/GatitoIzq.svg";
     //if (tipo == "Serializada") return "public/images/GatitoDer.svg";
@@ -72,21 +72,19 @@
 
             ">
       {/if}
+        <div class= "manchas">
+        <Mancha cant={manchaVentas(serie.Ventas)} tamano={diamRating(serie.Rating)*0.674} altura= {diamRating(serie.Rating)}/>
+        </div>
         <div class="person-color">
         <Color tipo={serie.Tipo} tamano={diamRating(serie.Rating)*0.674} altura= {diamRating(serie.Rating)} color={colorDuracion(serie.Duracion)}/>
         </div>
-                <div class= "manchas">
-        <Mancha cant={manchaVentas(serie.Ventas)} tamano={diamRating(serie.Rating)*0.627} altura= {diamRating(serie.Rating)*0.817}/>
-        </div>
+
       <div class="nombre-container">
         <p>{serie.Nombre}</p>
       </div>
         
 
       </div>
-      <!--<div class="nombre">
-        <p>{serie.Nombre}</p>
-      </div>-->
     {/each}
       <!-- Fin iteración -->
 
@@ -95,20 +93,24 @@
 
       .container{
         display: flex;
+   
+    justify-content: center;
+    align-items: end;
+    margin: auto;
     flex-wrap: wrap;
-    align-content: space-around;
-    gap: 2px;
-    padding-left: 110px;
-    padding-right: 0px;
-    width: 1130px;
-    height: 550px;
+   
+    gap: 30px;
+  
+
   }
-      .person-container {
-        display: flex;
-        position: relative;
-        align-items: flex-end;
-    width: 200px;
-    height: 330px;
+  .person-container {
+    display: flex;
+    position: relative;
+    align-items: flex-end;
+    justify-content: center;
+    flex: 180px 0 0;
+    width: 120px;
+    height: 188px;
     /*
     display: flex;
     
@@ -124,24 +126,14 @@
         /*
     bottom: -10px;
     */
-    width: 100%;
-    height:100%;
-    z-index: 3;
-  
 
+    z-index: 3;
   }
   .manchas{
-    display: flex;
-    position: absolute;
-    align-items: flex-end;
+      bottom: -6px;
+    position: absolute; 
     mix-blend-mode: multiply;
-    bottom: 22px;
-   
-    left: 2%;
-   
- 
-    z-index: 2;
-
+    z-index: 3;
   }
     .person-color{
     position: absolute;
@@ -161,9 +153,9 @@
   .nombre-container {
     position: absolute;
     text-align: center;
-    bottom: -30%;
-    left:0%;
-    right: 0%;
+    
+    bottom: -40%;
+ 
     font-size: 14px;
     width: 100px;
   }
