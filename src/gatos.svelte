@@ -96,7 +96,7 @@
     align-items: end;
     margin: auto;
     flex-wrap: wrap;
-   gap:30px;
+   gap:50px;
   
   
   
