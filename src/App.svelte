@@ -223,7 +223,7 @@
     text-align: center;
     border-style: solid;
     border-width: 10px 10px 10px 10px;
-    border-image: url("public/images/border.svg") 10 10 10 10 stretch stretch;
+    border-image: url("./images/border.svg") 10 10 10 10 stretch stretch;
     background-color: unset;
     font-size: 1em;
     color: #3c3c3c;
@@ -235,7 +235,7 @@
     text-align: center;
     border-style: solid;
     border-width: 10px 10px 10px 10px;
-    border-image: url("/images/border.svg") 10 10 10 10 stretch stretch;
+    border-image: url("./images/border.svg") 10 10 10 10 stretch stretch;
     background-color: unset;
     font-size: 1em;
     color: #3c3c3c;
@@ -257,8 +257,8 @@
     z-index: 200;
     text-align: center;
     border-style: solid;
-    border-width: 10px 10px 10px 10px;
-    border-image: url("/images/border.svg") 10 10 10 10 stretch stretch;
+    border-width: 20px 20px 20px 20px;
+    border-image: url("./images/border.svg") 20 20 20 20 stretch stretch;
   }
   .hidden {
     display: none;
