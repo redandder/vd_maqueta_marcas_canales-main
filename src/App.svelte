@@ -83,7 +83,8 @@
         </div>
         <img src="/images/doodle-line.svg" alt="" style="height: 5px;">
         <div class="guia-box">
-          <img src="" alt="">
+          <img src="/images/MuchasManchas.svg" alt="" style="height: 100px">
+          <img src="/images/PocasManchas.svg" alt="" style="height: 100px">
         </div>
         <div class="guia-box">
           <p># Manchas = # Ganancias por ventas de juguetes</p>
