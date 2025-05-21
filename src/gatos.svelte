@@ -109,12 +109,11 @@
     justify-content: center;
     flex: 180px 0 0;
     width: 120px;
-<<<<<<< HEAD
+
     height: 188px;
     margin:auto;
-=======
     height: 200px;
->>>>>>> a480ddd9f0c6e162efb66922639dcd00a80d800a
+
     /*
     display: flex;
     
