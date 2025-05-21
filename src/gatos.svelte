@@ -109,8 +109,12 @@
     justify-content: center;
     flex: 180px 0 0;
     width: 120px;
+<<<<<<< HEAD
     height: 188px;
     margin:auto;
+=======
+    height: 200px;
+>>>>>>> a480ddd9f0c6e162efb66922639dcd00a80d800a
     /*
     display: flex;
     
@@ -154,10 +158,10 @@
     position: absolute;
     text-align: center;
     
-    bottom: -40%;
+    bottom: -30%;
  
     font-size: 14px;
-    width: 100px;
+    width: 150px;
   }
 
   </style>
