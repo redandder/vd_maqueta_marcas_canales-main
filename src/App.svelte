@@ -47,6 +47,12 @@
 
 
 <main>
+  <div class="header-container">
+    <div class="header-overlay">
+      <h1>hollow knight</h1>
+      <p>hollow knight es un videojuego indie en el cual exploras el mundo de hallownest y descubris sus misterios</p>
+    </div>
+  </div>
   <div id="overlay" class="hidden">
     <div id="guia-visualizacion" class="guia-visualizacion hidden">
       <div class="guia-box">
@@ -147,6 +153,24 @@
   main {
     width: 100%;
     font-family: 'Short Stack', cursive;
+  }
+  .header-container{
+    text-align: center;
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 85% 85% / 30%;
+  }
+  .header-overlay {
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    color: red;
+    background: linear-gradient(135deg, orange 30%, blue);
+
   }
   .header {
     display: flex;
