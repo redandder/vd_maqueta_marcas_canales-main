@@ -87,20 +87,22 @@
   </div>
   
   <div class="header">
-    <img src="/images/logo_referencias.svg" width="190" alt="anillos" />
+    <!--<img src="/images/logo_referencias.svg" width="190" alt="anillos" /> -->
     <h3 class="headline">
-      <b>Los reyes del oro</b>
-      Medallas, participaciones y dominio en distintos continentes
+      <b>Series Animadas Basadas en Juguetes</b>
+
     </h3>
     <p class="bajada">
-      Los atletas con más medallas olímpicas de oro en los Juegos Olímpicos
+      Una visualización que explora distintos datos de series animadas inspiradas en líneas de juguetes
     </p>
+    <!--
     <img
       class="referencias"
       src="/images/referencias.svg"
       width="490"
       alt="anillos"
     />
+    -->
   </div>
 
     <!-- Conedor de las entidades 
