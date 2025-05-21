@@ -7,7 +7,7 @@
     const maxRating = d3.max(series, (d) => d.Rating)
     const minRating = d3.min(series, (d) => d.Rating)
     const diamRating = d3.scaleLinear()
-        .domain([minRating, maxRating]).range([15, 180])
+        .domain([minRating, maxRating]).range([80, 180])
 
     const manchaW = d3.scaleLinear()
         .domain([minRating, maxRating]).range([15, 180])
@@ -82,7 +82,6 @@
       <div class="nombre-container">
         <p>{serie.Nombre}</p>
       </div>
-        
 
       </div>
     {/each}
