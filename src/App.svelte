@@ -49,7 +49,6 @@
 <main>
   <div id="overlay" class="hidden">
     <div id="guia-visualizacion" class="guia-visualizacion hidden">
-      <p>HOLLOW KNIGHT ES UN VIDEOJUEGO INDIE EN EL CUAL JUGAS COMO EL CABALLERO Y EXPLORAS EL MUNDO DE HALLOWNEST</p>
       <div class="guia-box">
         <div class="gatito-item">
           <img class="gatitoImg" src="./images/GatitoDer.svg" alt="" style="">
@@ -64,23 +63,30 @@
           <p>Episódica</p>
         </div>
       </div>
+      <img src="/images/doodle-line.svg" alt="" style="height: 5px; color: #3c3c3c">
         <div class="guia-box">
+          <p>4 episodios</p>
           <div class="circulo-color" style="background-color: #FDF8F2"></div>
           <div class="circulo-color" style="background-color: #EFCFA9"></div>
           <div class="circulo-color" style="background-color: #DF9F53"></div>
           <div class="circulo-color" style="background-color: #AC6C20"></div>
           <div class="circulo-color" style="background-color: #6C4414"></div>
-          
+          <p>200 episodios</p>
         </div>
-        <div class="guia-box">
-          <p>Cantidad de episodios</p>
-        </div>
+        <img src="/images/doodle-line.svg" alt="" style="height: 5px;">
         <div class="guia-box">
           <img class="gatitoImg" src="./images/GatitoDosManos.svg" alt="" style="height: 100px">
           <img class="gatitoImg" src="./images/GatitoDosManos.svg" alt="" style="height: 60px; top: 50%; transform: translateY(50%);">
         </div>
         <div class="guia-box">
           <p>Rating</p>
+        </div>
+        <img src="/images/doodle-line.svg" alt="" style="height: 5px;">
+        <div class="guia-box">
+          <img src="" alt="">
+        </div>
+        <div class="guia-box">
+          <p># Manchas = # Ganancias por ventas de juguetes</p>
         </div>
     <button on:click={cerrarPopup}>Cerrar</button>
   </div>
@@ -126,7 +132,7 @@
      Fin iteración 
 
     </div>-->
-
+    
     <div class="guia-container">
       <button class="guia-button" on:click={abrirPopup}>
         <p>Guía de visualización</p>
@@ -276,8 +282,8 @@
   }
   .guia-box {
     display: flex;
-    gap: 10px;
     justify-content: center;
+    margin-top: 10px;
   }
   .gatitoImg {
     width: 100px;
@@ -288,8 +294,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
   }
   .gatito-colores {
     display: flex;
