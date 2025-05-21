@@ -109,7 +109,7 @@
     justify-content: center;
     flex: 180px 0 0;
     width: 120px;
-    height: 188px;
+    height: 200px;
     /*
     display: flex;
     
@@ -153,10 +153,10 @@
     position: absolute;
     text-align: center;
     
-    bottom: -40%;
+    bottom: -30%;
  
     font-size: 14px;
-    width: 100px;
+    width: 150px;
   }
 
   </style>
