@@ -287,7 +287,7 @@
     transform: translate(-50%, -50%);
     width: 800px;
     padding: 20px;
-    background: white;
+    background: antiquewhite;
     z-index: 200;
     text-align: center;
     border-style: solid;
