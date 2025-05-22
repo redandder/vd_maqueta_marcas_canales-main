@@ -36,6 +36,7 @@
       <!-- Iteramos la data para visualizar c/ entidad -->
     
       {#each series as serie}
+      <div class="gato-wrapper">
       <div class="person-container">
         {#if serie.Tipo == "Serializada"}
           <img
@@ -79,12 +80,11 @@
         <Color tipo={serie.Tipo} tamano={diamRating(serie.Rating)*0.674} altura= {diamRating(serie.Rating)} color={colorDuracion(serie.Duracion)}/>
         </div>
 
+      </div>
       <div class="nombre-container">
         <p>{serie.Nombre}</p>
       </div>
-
       </div>
-
     {/each}
     </div>
 
@@ -154,13 +154,21 @@
   }
 
   .nombre-container {
-    position: absolute;
+    margin-top: 30px;
     text-align: center;
-    
+    background-color: aliceblue;
     bottom: -30%;
- 
     font-size: 14px;
     width: 150px;
+  }
+
+  .gato-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 250px;
+    width: 200px;
   }
 
   </style>

@@ -147,12 +147,17 @@
     </div>
 
     <Gatos series={series} />
+  
+  <div class="seccion4">
+    <p>hola</p>
+  </div>
 </main>
 
 <style>
   main {
     width: 100%;
     font-family: 'Short Stack', cursive;
+    background-color: antiquewhite;
   }
   .header-container{
     text-align: center;
@@ -168,7 +173,6 @@
     width: 100%;
     height: 100%;
     padding: 50px;
-    color: red;
     background: linear-gradient(135deg, orange 30%, blue);
 
   }
@@ -331,5 +335,12 @@
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
+  }
+  
+  .seccion4 {
+    margin-top: 100px;
+    height: 500px;
+    width: 100%;
+    background-color: aquamarine;
   }
 </style>
