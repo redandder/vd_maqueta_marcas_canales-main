@@ -110,7 +110,7 @@
     flex: 180px 0 0;
     width: 120px;
 
-    height: 188px;
+    height: 180px;
     margin:auto;
     height: 200px;
 
@@ -156,10 +156,14 @@
   .nombre-container {
     margin-top: 30px;
     text-align: center;
-    background-color: aliceblue;
-    bottom: -30%;
+    background-image: url("/images/fondo-sticker.png");
+    background-size: 190px;
+    background-repeat: no-repeat;
+    background-position: center;
     font-size: 14px;
     width: 150px;
+    padding: 10px;
+    transform: translateY(-20%);
   }
 
   .gato-wrapper {
@@ -170,5 +174,7 @@
     height: 250px;
     width: 200px;
   }
+
+  
 
   </style>
