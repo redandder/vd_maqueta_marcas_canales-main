@@ -30,12 +30,16 @@
 
 
 </script>
-
+                    <img
+            class="techo"
+            src="./images/techo.svg"
+            alt="">
+          <div class="mueble">
 <div class="container">
 
       <!-- Iteramos la data para visualizar c/ entidad -->
-    
-      {#each series as serie}
+
+      {#each series as serie, i}
       <div class="gato-wrapper">
       <div class="person-container">
         {#if serie.Tipo == "Serializada"}
@@ -85,18 +89,45 @@
         <p>{serie.Nombre}</p>
       </div>
       </div>
+      {#if (i+1)%5==0 || i ==serie.length-1}
+                <img
+            class="estante"
+            src="./images/estante.svg"
+            alt="">
+      {/if}
     {/each}
+    </div>
     </div>
 
 <style>
+  .techo{
+        
+     width: 10011px;
+     bottom: -6px;
+  }
+  .mueble{
+    background-color: #F0D786;
 
+  
+ border: 50px solid transparent;
+      border-image-slice: 60;
+  border-image-source:url("/images/estante-borde.svg"); 
+  }
+.estante{
+  
+    height: 100%;
+
+     width: 100%;
+}
       .container{
         display: flex;
     justify-content: center;
     align-items: end;
     margin: auto;
     flex-wrap: wrap;
-   gap:50px;
+   row-gap: 0px;
+    column-gap: 50px;
+    
   
   
   
@@ -171,7 +202,7 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    height: 250px;
+    height: 176px;
     width: 200px;
   }
 
