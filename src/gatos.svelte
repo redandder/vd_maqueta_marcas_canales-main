@@ -101,9 +101,9 @@
 
 <style>
   .techo{
-        
+        position: relative;
      width: 10011px;
-     bottom: -6px;
+     bottom:-16px;
   }
   .mueble{
     background-color: #F0D786;
