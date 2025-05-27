@@ -32,7 +32,7 @@
 </script>
                     <img
             class="techo"
-            src="./images/techo.svg"
+            src="./images/techoo.svg"
             alt="">
           <div class="mueble">
 <div class="container">
@@ -101,14 +101,17 @@
 
 <style>
   .techo{
-        
+        position: relative;
      width: 10011px;
-     bottom: -6px;
+     bottom: -16px;
   }
   .mueble{
+  margin: auto;
     background-color: #F0D786;
 
-  
+      width: 1430px;
+
+    height: 980px;
  border: 50px solid transparent;
       border-image-slice: 60;
   border-image-source:url("/images/estante-borde.svg"); 
@@ -116,7 +119,6 @@
 .estante{
   
     height: 100%;
-
      width: 100%;
 }
       .container{
