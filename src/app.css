@@ -2,3 +2,19 @@
 #app{
     max-width: 1580px;
 }
+.header-container{
+    text-align: center;
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 85% 85% / 30%;
+}
+.header-overlay {
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    background: brown;
+}
