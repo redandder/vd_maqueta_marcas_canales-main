@@ -151,7 +151,6 @@
   main {
     width: 100%;
     font-family: 'Short Stack', cursive;
-    background-color: antiquewhite;
   }
   .header {
     display: flex;
@@ -235,9 +234,9 @@
     text-align: center;
     border-style: solid;
     border-width: 10px 10px 10px 10px;
-    background-color: unset;
     font-size: 1em;
     color: #3c3c3c;
+    background-color: antiquewhite;
     width: 300px;
     font-size: 18px;
     user-select: none;
