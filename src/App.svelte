@@ -131,12 +131,11 @@
      Fin iteración 
 
     </div>-->
-    
     <div class="guia-container">
+      <img src="/images/nube.svg" class="fondo-nube" alt=""/>
       <button class="guia-button" on:click={abrirPopup}>
         <p>Guía de visualización</p>
       </button>
-    </div>
     <div class="gatos-visualizacion">
     <Gatos series={series} />
     </div>
@@ -232,7 +231,21 @@
     margin-top: 50px;
     margin-bottom: 20px;
   }
-
+  .fondo-nube {
+    height: 200px;
+    position: absolute;
+    align-self: center;
+    top: 6%;
+    transform: translate(-4%, -50%);
+    z-index: 0;
+  }
+  .fondo-nube:hover{
+    animation: flotar 3s ease-in-out infinite;
+  }
+  @keyframes flotar {
+    0%, 100% {transform: translate(-4%, -53%);}
+    50% {transform: translate(-4%, -47%);}
+  }
   .guia-container {
     display: flex;
     justify-content: center;
@@ -246,20 +259,15 @@
 
   .guia-button {
     text-align: center;
-    border-style: solid;
-    border-width: 10px 10px 10px 10px;
     font-size: 1em;
     color: #3c3c3c;
-    background-color: antiquewhite;
     width: 300px;
     font-size: 18px;
     user-select: none;
+    z-index: 50;
   }
   button {
     text-align: center;
-    border-style: solid;
-    border-width: 10px 10px 10px 10px;
-    border-image: url("/images/border.svg") 10 10 10 10 stretch stretch;
     background-color: unset;
     font-size: 1em;
     color: #3c3c3c;
