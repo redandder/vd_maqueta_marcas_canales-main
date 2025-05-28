@@ -144,12 +144,13 @@
       <p>Índice del gato clickeado: {$gatoEspecifico}</p>
       {#if $gatoEspecifico !== undefined && series[$gatoEspecifico]}
         <p>{series[$gatoEspecifico].Nombre}</p>
+        <div class="container-gato-especifico">
+          <CuadroGato />
+        </div>
       {:else}
         <p>Seleccioná un gato válido</p>
       {/if}
-      <div class="container-gato-especifico">
-        <CuadroGato />
-      </div>
+
   </div>
 </main>
 
@@ -340,7 +341,7 @@
   
   .seccion4 {
     margin-top: 100px;
-    height: 1000px;
+    max-height: 1000px;
     width: 100%;
     background-color: aquamarine;
     display: flex;
