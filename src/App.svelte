@@ -3,7 +3,7 @@
   import atletas from "/src/data/athletes.csv"
   import series from "/src/data/SeriesYJuguetes.json"
   import Gatos from "/src/gatos.svelte"
-  import { llamadoGato, gatoEspecifico } from "/src/store.js"
+  import {llamadoGato, gatoEspecifico} from "/src/store.js"
   import CuadroGato from "/src/CuadroGato.svelte"
 
   console.log("atletas", atletas)
@@ -142,6 +142,11 @@
   
   <div class="seccion4">
       <p>Índice del gato clickeado: {$gatoEspecifico}</p>
+      {#if $gatoEspecifico !== undefined && series[$gatoEspecifico]}
+        <p>{series[$gatoEspecifico].Nombre}</p>
+      {:else}
+        <p>Seleccioná un gato válido</p>
+      {/if}
       <div class="container-gato-especifico">
         <CuadroGato />
       </div>
