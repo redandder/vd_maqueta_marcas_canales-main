@@ -16,6 +16,7 @@ body {
     position: relative;
     overflow: hidden;
     border-radius: 0 0 85% 85% / 30%;
+    color: white;
 }
 .header-overlay {
     width: 100%;
