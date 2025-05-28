@@ -218,6 +218,9 @@
   }
   .gato-interactivo{
     z-index: 900;
+    height: 150px;
+    position: absolute;
+    opacity: 0;
   }
   
 

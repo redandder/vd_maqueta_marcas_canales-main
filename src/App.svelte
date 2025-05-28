@@ -3,7 +3,8 @@
   import atletas from "/src/data/athletes.csv"
   import series from "/src/data/SeriesYJuguetes.json"
   import Gatos from "/src/gatos.svelte"
-  import { llamadoGato, gatoEspecifico } from '/src/store.js';
+  import { llamadoGato, gatoEspecifico } from "/src/store.js"
+  import CuadroGato from "/src/CuadroGato.svelte"
 
   console.log("atletas", atletas)
   console.log("series", series)
@@ -141,9 +142,12 @@
     </div>
   
   <div class="seccion4">
-    <p>hola</p>
-    <p>Veces que se llamó un gato: {$llamadoGato}</p>
-    <p>Índice del gato clickeado: {$gatoEspecifico}</p>
+      <p>hola</p>
+      <p>Veces que se llamó un gato: {$llamadoGato}</p>
+      <p>Índice del gato clickeado: {$gatoEspecifico}</p>
+      <div class="cuadro-gato-especifico">
+        <CuadroGato />
+      </div>
   </div>
 </main>
 
@@ -190,6 +194,10 @@
     background: url("/images/cielo.svg");
     max-width: 3020px;
     background-size: cover;
+  }
+
+  .cuadro-gato-especifico {
+    max-width: 3020px;
   }
   .person-container {
     display: flex;
