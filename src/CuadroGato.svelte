@@ -85,7 +85,7 @@
     position: relative;
     align-items: flex-end;
     justify-content: center;
-    flex: 200px 0 0;
+    flex: 360px 0 0;
     width: 400px;
     margin:auto;
     height: 800px;
@@ -113,8 +113,8 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    height: 200px;
-    width: 200px;
+    height: 360px;
+    width: 400px;
   }
 
   </style>

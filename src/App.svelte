@@ -145,7 +145,7 @@
       <p>hola</p>
       <p>Veces que se llamó un gato: {$llamadoGato}</p>
       <p>Índice del gato clickeado: {$gatoEspecifico}</p>
-      <div class="cuadro-gato-especifico">
+      <div class="container-gato-especifico">
         <CuadroGato />
       </div>
   </div>
@@ -180,15 +180,14 @@
   .headline b {
     display: block;
   }
-  .container {
+  .container-gato-especifico{
     display: flex;
     justify-content: center;
     align-items: end;
     margin: auto;
     flex-wrap: wrap;
-    max-width: 1020px;
-    gap: 30px;
-    margin-bottom: 100px;
+   row-gap: 0px;
+    column-gap: 50px;
   }
   .gatos-visualizacion{
     background: url("/images/cielo.svg");
@@ -198,6 +197,8 @@
 
   .cuadro-gato-especifico {
     max-width: 3020px;
+    height: 800;
+    display: flex;
   }
   .person-container {
     display: flex;
@@ -328,8 +329,10 @@
   
   .seccion4 {
     margin-top: 100px;
-    height: 500px;
+    height: 1000px;
     width: 100%;
     background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
   }
 </style>
