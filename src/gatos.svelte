@@ -21,11 +21,21 @@
     const minVentas = d3.min(series, (d) => d.Ventas)
     let manchaVentas=d3.scaleLinear()
         .domain([minVentas, maxVentas]).range([1, 5])
-  //function imagenGato(tipo) {
-    //if (tipo == "Episodica") return "./images/GatitoIzq.svg";
-    //if (tipo == "Serializada") return "./images/GatitoDer.svg";
-    //return "./images/GatitoDosManos.svg";
-  //}
+
+  let arr= [];
+  let temp=[];
+  for(let i = 0; i < series.length; i++){
+      if((i+1) % 5 == 0){
+        arr.push(temp);
+        temp=[];
+      } else{
+        temp.push(series[i]);
+      }
+
+  }
+  console.log("m", arr)
+
+
 
 
 
@@ -36,16 +46,16 @@
             alt="">
           <div class="mueble">
 <div class="container">
-
+    {#each arr as cuatroG}
       <!-- Iteramos la data para visualizar c/ entidad -->
-
-      {#each series as serie, i}
+      <div class= "gatos-con-estante">
+      {#each cuatroG as serie}
       <div class="gato-wrapper">
       <div class="person-container">
         {#if serie.Tipo == "Serializada"}
           <img
             class="person"
-            src="./images/GatitoDer.svg"
+            src="./images/gatoDer.svg"
             alt=""
             style="
               width: {diamRating(serie.Rating)*0.674}px; 
@@ -56,7 +66,7 @@
  
           <img
             class="person"
-            src="./images/GatitoIzq.svg"
+            src="./images/gatoIzq.svg"
             alt=""
             style="
               width: {diamRating(serie.Rating)*0.674}px; 
@@ -68,7 +78,7 @@
       {#if serie.Tipo == "Ambas"}
           <img
             class="person"
-            src="./images/GatitoDosManos.svg"
+            src="./images/linea-gato-dos.svg"
             alt=""
             style="
               width: {diamRating(serie.Rating)*0.674}px; 
@@ -78,7 +88,7 @@
       {/if}
 
         <div class= "manchas">
-        <Mancha cant={manchaVentas(serie.Ventas)} tamano={diamRating(serie.Rating)*0.674} altura= {diamRating(serie.Rating)}/>
+        <Mancha tipo={serie.Tipo} cant={manchaVentas(serie.Ventas)} tamano={diamRating(serie.Rating)*0.674} altura= {diamRating(serie.Rating)}/>
         </div>
         <div class="person-color">
         <Color tipo={serie.Tipo} tamano={diamRating(serie.Rating)*0.674} altura= {diamRating(serie.Rating)} color={colorDuracion(serie.Duracion)}/>
@@ -89,18 +99,28 @@
         <p>{serie.Nombre}</p>
       </div>
       </div>
-      {#if (i+1)%5==0 || i ==serie.length-1}
-                <img
-            class="estante"
-            src="./images/estante.svg"
-            alt="">
-      {/if}
+      {/each}
+          <img
+        class="estante"
+        src="./images/estante.svg"
+        alt="">
+       </div>     
     {/each}
     </div>
     </div>
 
 <style>
+  .gatos-con-estante{
+            display: flex;
+    justify-content: center;
+    align-items: end;
+    margin: auto;
+    flex-wrap: wrap;
+   row-gap: 0px;
+    column-gap: 50px;
+  }
   .techo{
+      margin: auto;
         position: relative;
      width: 10011px;
      bottom: -16px;
@@ -108,10 +128,8 @@
   .mueble{
   margin: auto;
     background-color: #F0D786;
-
-      width: 1430px;
-
-    height: 980px;
+      width: 1230px;
+    height: 1120px;
  border: 50px solid transparent;
       border-image-slice: 60;
   border-image-source:url("/images/estante-borde.svg"); 
@@ -127,7 +145,7 @@
     align-items: end;
     margin: auto;
     flex-wrap: wrap;
-   row-gap: 0px;
+   row-gap: 50px;
     column-gap: 50px;
     
   
@@ -166,8 +184,8 @@
     z-index: 3;
   }
   .manchas{
-      bottom: -6px;
-    position: absolute; 
+      bottom: -3%;
+         position: absolute;
     mix-blend-mode: multiply;
     z-index: 3;
   }
@@ -177,7 +195,7 @@
     left: 2%;
     right: 3.10%;
     */
-    bottom: -6px;  
+    bottom: -5.9px;  
     
  
 
