@@ -34,7 +34,7 @@
       {#if serie.Tipo === "Serializada"}
         <img
           class="person"
-          src="./images/GatitoDer.svg"
+          src="./images/gatoDer.svg"
           alt=""
           style="
             width: {diamRating(serie.Rating)*0.674}px; 
@@ -44,7 +44,7 @@
       {#if serie.Tipo === "Episodica"}
         <img
           class="person"
-          src="./images/GatitoIzq.svg"
+          src="./images/gatoIzq.svg"
           alt=""
           style="
             width: {diamRating(serie.Rating)*0.674}px; 
@@ -54,7 +54,7 @@
       {#if serie.Tipo === "Ambas"}
         <img
           class="person"
-          src="./images/GatitoDosManos.svg"
+          src="./images/linea-gato-dos.svg"
           alt=""
           style="
             width: {diamRating(serie.Rating)*0.674}px; 
@@ -63,6 +63,7 @@
 
       <div class="manchas">
         <Mancha
+          tipo={serie.Tipo}
           cant={manchaVentas(serie.Ventas)}
           tamano={diamRating(serie.Rating)*0.674}
           altura={diamRating(serie.Rating)} />

@@ -6,9 +6,9 @@
     import { llamadoGato, gatoEspecifico } from '/src/store.js';
     import { get } from 'svelte/store';
 
-    function manejarClick(i) {
+    function manejarClick(i, j) {
       llamadoGato.update(n => n + 1);
-      gatoEspecifico.set(i);
+      gatoEspecifico.set(i+j*4);
     }
 
     const maxRating = d3.max(series, (d) => d.Rating)
@@ -32,12 +32,12 @@
   let arr= [];
   let temp=[];
   for(let i = 0; i < series.length; i++){
-      if((i+1) % 5 == 0){
+            temp.push(series[i]);
+      if((i+1) % 4 == 0 || (i + 1) == series.length){
         arr.push(temp);
         temp=[];
-      } else{
-        temp.push(series[i]);
-      }
+      } 
+
 
   }
   console.log("m", arr)
@@ -53,13 +53,13 @@
             alt="">
           <div class="mueble">
 <div class="container">
-    {#each arr as cuatroG}
+    {#each arr as cuatroG, j}
       <!-- Iteramos la data para visualizar c/ entidad -->
       <div class= "gatos-con-estante">
-      {#each cuatroG as serie}
+      {#each cuatroG as serie,i}
       <div class="gato-wrapper">
       <div class="person-container">
-        <button class="gato-interactivo" on:click={() => manejarClick(i)}>click</button>
+        <button class="gato-interactivo" on:click={() => manejarClick(i,j)}>click</button>
 
         {#if serie.Tipo == "Serializada"}
           <img
@@ -67,7 +67,7 @@
             src="./images/gatoDer.svg"
             alt=""
             style="
-              width: {diamRating(serie.Rating)*0.674}px; 
+              width: {diamRating(serie.Rating)*0.634}px; 
               height: {diamRating(serie.Rating)}px; ">
 
         {/if}
@@ -78,7 +78,7 @@
             src="./images/gatoIzq.svg"
             alt=""
             style="
-              width: {diamRating(serie.Rating)*0.674}px; 
+              width: {diamRating(serie.Rating)*0.634}px; 
               height: {diamRating(serie.Rating)}px; 
 
             ">
@@ -90,17 +90,17 @@
             src="./images/linea-gato-dos.svg"
             alt=""
             style="
-              width: {diamRating(serie.Rating)*0.674}px; 
+              width: {diamRating(serie.Rating)*0.634}px; 
               height: {diamRating(serie.Rating)}px; 
 
             ">
       {/if}
 
         <div class= "manchas">
-        <Mancha tipo={serie.Tipo} cant={manchaVentas(serie.Ventas)} tamano={diamRating(serie.Rating)*0.674} altura= {diamRating(serie.Rating)}/>
+        <Mancha tipo={serie.Tipo} cant={manchaVentas(serie.Ventas)} tamano={diamRating(serie.Rating)*0.634} altura= {diamRating(serie.Rating)}/>
         </div>
         <div class="person-color">
-        <Color tipo={serie.Tipo} tamano={diamRating(serie.Rating)*0.674} altura= {diamRating(serie.Rating)} color={colorDuracion(serie.Duracion)}/>
+        <Color tipo={serie.Tipo} tamano={diamRating(serie.Rating)*0.634} altura= {diamRating(serie.Rating)} color={colorDuracion(serie.Duracion)}/>
         </div>
 
       </div>
@@ -138,7 +138,7 @@
   margin: auto;
     background-color: #F0D786;
       width: 1230px;
-    height: 1120px;
+    height: 1420px;
  border: 50px solid transparent;
       border-image-slice: 60;
   border-image-source:url("/images/estante-borde.svg"); 
@@ -193,7 +193,7 @@
     z-index: 3;
   }
   .manchas{
-      bottom: -3%;
+      bottom: -1.5%;
          position: absolute;
     mix-blend-mode: multiply;
     z-index: 3;
@@ -204,7 +204,7 @@
     left: 2%;
     right: 3.10%;
     */
-    bottom: -5.9px;  
+    bottom: -2%;  
     
  
 
