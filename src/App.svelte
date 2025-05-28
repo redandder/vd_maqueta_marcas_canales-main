@@ -95,10 +95,6 @@
   
   <div class="header">
     <!--<img src="/images/logo_referencias.svg" width="190" alt="anillos" /> -->
-    <h3 class="headline">
-      <b>Series Animadas Basadas en Juguetes</b>
-
-    </h3>
     <p class="bajada">
       Una visualización que explora distintos datos de series animadas inspiradas en líneas de juguetes
     </p>
