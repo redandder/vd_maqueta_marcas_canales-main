@@ -1,6 +1,8 @@
 /* Estilos globales */
 #app{
+    position: relative;
     max-width: 1580px;
+
 }
 body {
     background-color: #81C2E8;

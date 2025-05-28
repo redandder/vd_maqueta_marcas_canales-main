@@ -135,8 +135,9 @@
         <p>Guía de visualización</p>
       </button>
     </div>
-
+    <div class="gatos-visualizacion">
     <Gatos series={series} />
+    </div>
   
   <div class="seccion4">
     <p>hola</p>
@@ -181,6 +182,11 @@
     max-width: 1020px;
     gap: 30px;
     margin-bottom: 100px;
+  }
+  .gatos-visualizacion{
+    background: url("/images/cielo.svg");
+    max-width: 3020px;
+    background-size: cover;
   }
   .person-container {
     display: flex;
