@@ -3,6 +3,13 @@
     export let series= ""
     import Color from "/src/color.svelte"
     import  Mancha from "/src/mancha.svelte"
+    import { llamadoGato, gatoEspecifico } from '/src/store.js';
+    import { get } from 'svelte/store';
+
+    function manejarClick(i) {
+      llamadoGato.update(n => n + 1);
+      gatoEspecifico.set(i);
+    }
 
     const maxRating = d3.max(series, (d) => d.Rating)
     const minRating = d3.min(series, (d) => d.Rating)
@@ -52,6 +59,8 @@
       {#each cuatroG as serie}
       <div class="gato-wrapper">
       <div class="person-container">
+        <button class="gato-interactivo" on:click={() => manejarClick(i)}>click</button>
+
         {#if serie.Tipo == "Serializada"}
           <img
             class="person"
@@ -225,7 +234,12 @@
     height: 176px;
     width: 200px;
   }
-
+  .gato-interactivo{
+    z-index: 900;
+    height: 150px;
+    position: absolute;
+    opacity: 0;
+  }
   
 
   </style>

@@ -3,6 +3,8 @@
   import atletas from "/src/data/athletes.csv"
   import series from "/src/data/SeriesYJuguetes.json"
   import Gatos from "/src/gatos.svelte"
+  import { llamadoGato, gatoEspecifico } from "/src/store.js"
+  import CuadroGato from "/src/CuadroGato.svelte"
 
   console.log("atletas", atletas)
   console.log("series", series)
@@ -95,10 +97,6 @@
   
   <div class="header">
     <!--<img src="/images/logo_referencias.svg" width="190" alt="anillos" /> -->
-    <h3 class="headline">
-      <b>Series Animadas Basadas en Juguetes</b>
-
-    </h3>
     <p class="bajada">
       Una visualización que explora distintos datos de series animadas inspiradas en líneas de juguetes
     </p>
@@ -144,7 +142,12 @@
     </div>
   
   <div class="seccion4">
-    <p>hola</p>
+      <p>hola</p>
+      <p>Veces que se llamó un gato: {$llamadoGato}</p>
+      <p>Índice del gato clickeado: {$gatoEspecifico}</p>
+      <div class="container-gato-especifico">
+        <CuadroGato />
+      </div>
   </div>
 </main>
 
@@ -177,20 +180,25 @@
   .headline b {
     display: block;
   }
-  .container {
+  .container-gato-especifico{
     display: flex;
     justify-content: center;
     align-items: end;
     margin: auto;
     flex-wrap: wrap;
-    max-width: 1020px;
-    gap: 30px;
-    margin-bottom: 100px;
+   row-gap: 0px;
+    column-gap: 50px;
   }
   .gatos-visualizacion{
     background: url("/images/cielo.svg");
     max-width: 3020px;
     background-size: cover;
+  }
+
+  .cuadro-gato-especifico {
+    max-width: 3020px;
+    height: 800;
+    display: flex;
   }
   .person-container {
     display: flex;
@@ -321,8 +329,10 @@
   
   .seccion4 {
     margin-top: 100px;
-    height: 500px;
+    height: 1000px;
     width: 100%;
     background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
   }
 </style>
