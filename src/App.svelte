@@ -141,8 +141,6 @@
     </div>
   
   <div class="seccion4">
-      <p>hola</p>
-      <p>Veces que se llamó un gato: {$llamadoGato}</p>
       <p>Índice del gato clickeado: {$gatoEspecifico}</p>
       <div class="container-gato-especifico">
         <CuadroGato />
@@ -181,9 +179,9 @@
   }
   .container-gato-especifico{
     display: flex;
-    justify-content: center;
-    align-items: end;
-    margin: auto;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 50;
     flex-wrap: wrap;
    row-gap: 0px;
     column-gap: 50px;
