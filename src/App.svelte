@@ -3,6 +3,7 @@
   import atletas from "/src/data/athletes.csv"
   import series from "/src/data/SeriesYJuguetes.json"
   import Gatos from "/src/gatos.svelte"
+  import { llamadoGato, gatoEspecifico } from '/src/store.js';
 
   console.log("atletas", atletas)
   console.log("series", series)
@@ -141,6 +142,8 @@
   
   <div class="seccion4">
     <p>hola</p>
+    <p>Veces que se llamó un gato: {$llamadoGato}</p>
+    <p>Índice del gato clickeado: {$gatoEspecifico}</p>
   </div>
 </main>
 
