@@ -141,14 +141,18 @@
     </div>
   
   <div class="seccion4">
-      <p>Índice del gato clickeado: {$gatoEspecifico}</p>
       {#if $gatoEspecifico !== undefined && series[$gatoEspecifico]}
-        <p>{series[$gatoEspecifico].Nombre}</p>
         <div class="container-gato-especifico">
           <CuadroGato />
+          <div class="cuadro-texto"> 
+            <h2>¡Conocé a {series[$gatoEspecifico].Nombre}!</h2>
+            <p>Esta serie es <strong>{series[$gatoEspecifico].Tipo.toLowerCase()}</strong> y dura <strong>{series[$gatoEspecifico].Duracion}</strong> minutos en total.</p>
+            <p>Tiene un puntaje de <strong>{series[$gatoEspecifico].Rating}</strong> y vendió <strong>{series[$gatoEspecifico].Ventas.toLocaleString()}</strong> copias. ¡Un montón!</p>
+            <p>Si te gustan las aventuras divertidas y llenas de color, <strong>{series[$gatoEspecifico].Nombre}</strong> es para vos.</p>
+          </div>
         </div>
       {:else}
-        <p>Seleccioná un gato válido</p>
+        <p>Seleccioná un gato.</p>
       {/if}
 
   </div>
@@ -240,15 +244,15 @@
     position: absolute;
     align-self: center;
     top: 6%;
-    transform: translate(-4%, -50%);
+    transform: translate(-4%, -25%);
     z-index: 0;
   }
   .fondo-nube:hover{
     animation: flotar 3s ease-in-out infinite;
   }
   @keyframes flotar {
-    0%, 100% {transform: translate(-4%, -53%);}
-    50% {transform: translate(-4%, -47%);}
+    0%, 100% {transform: translate(-4%, -30%);}
+    50% {transform: translate(-4%, -20%);}
   }
   .guia-container {
     display: flex;
@@ -341,10 +345,15 @@
   
   .seccion4 {
     margin-top: 100px;
-    max-height: 1000px;
+    height: 400px;
     width: 100%;
     background-color: aquamarine;
     display: flex;
     flex-direction: column;
+  }
+  .cuadro-texto {
+    width: 400px;
+    align-items: center;
+    transform: translateY(15%)
   }
 </style>

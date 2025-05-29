@@ -59,7 +59,9 @@
       {#each cuatroG as serie,i}
       <div class="gato-wrapper">
       <div class="person-container">
-        <button class="gato-interactivo" on:click={() => manejarClick(i,j)}>click</button>
+        <button class="gato-interactivo" style="
+              width: {diamRating(serie.Rating)*0.634}px; 
+              height: {diamRating(serie.Rating)}px; " on:click={() => manejarClick(i,j)}>click</button>
 
         {#if serie.Tipo == "Serializada"}
           <img
@@ -236,9 +238,19 @@
   }
   .gato-interactivo{
     z-index: 900;
-    height: 150px;
     position: absolute;
     opacity: 0;
+  }
+  @keyframes salto {
+    0%   { transform: translateY(0); }
+    30%  { transform: translateY(-20px); }
+    50%  { transform: translateY(0); }
+    70%  { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+
+  .person-container:hover {
+    animation: salto 0.6s ease-out;
   }
   
 

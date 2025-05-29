@@ -88,8 +88,9 @@
     justify-content: center;
     flex: 360px 0 0;
     width: 400px;
-    margin:auto;
+    margin: auto;
     height: 800px;
+    
     
   }
     .person {
