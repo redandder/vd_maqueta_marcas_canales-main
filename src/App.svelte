@@ -131,7 +131,7 @@
      Fin iteración 
 
     </div>-->
-    <div class="guia-container">
+    <div id="guia-container">
       <img src="/images/nube.svg" class="fondo-nube" alt=""/>
       <button class="guia-button" on:click={abrirPopup}>
         <p>Guía de visualización</p>
@@ -139,21 +139,22 @@
     <div class="gatos-visualizacion">
     <Gatos series={series} />
     </div>
-  
-  <div class="seccion4">
+
+  <div class="seccion4" id="down">
       {#if $gatoEspecifico !== undefined && series[$gatoEspecifico]}
         <div class="container-gato-especifico">
           <CuadroGato />
           <div class="cuadro-texto"> 
             <h2>¡Conocé a {series[$gatoEspecifico].Nombre}!</h2>
-            <p>Esta serie es <strong>{series[$gatoEspecifico].Tipo.toLowerCase()}</strong> y dura <strong>{series[$gatoEspecifico].Duracion}</strong> minutos en total.</p>
-            <p>Tiene un puntaje de <strong>{series[$gatoEspecifico].Rating}</strong> y vendió <strong>{series[$gatoEspecifico].Ventas.toLocaleString()}</strong> copias. ¡Un montón!</p>
+            <p>Esta serie es <strong>{series[$gatoEspecifico].Tipo.toLowerCase()}</strong> y tiene <strong>{series[$gatoEspecifico].Duracion}</strong> episodios en total.</p>
+            <p>Tiene un puntaje de <strong>{series[$gatoEspecifico].Rating}</strong> en IMBD y recaudó <strong>{series[$gatoEspecifico].Ventas.toLocaleString()}</strong> millones de dólares en ventas de juguetes. ¡Un montón!</p>
             <p>Si te gustan las aventuras divertidas y llenas de color, <strong>{series[$gatoEspecifico].Nombre}</strong> es para vos.</p>
           </div>
         </div>
       {:else}
         <p>Seleccioná un gato.</p>
       {/if}
+      
 
   </div>
 </main>
@@ -254,7 +255,7 @@
     0%, 100% {transform: translate(-4%, -30%);}
     50% {transform: translate(-4%, -20%);}
   }
-  .guia-container {
+  #guia-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -356,4 +357,20 @@
     align-items: center;
     transform: translateY(15%)
   }
+  .btn-arriba {
+    position: absolute;
+    z-index: 1000;
+    background-color: #000;
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+  }
+.btn-arriba:hover {
+  opacity: 1;
+}
+
 </style>

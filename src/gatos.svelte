@@ -11,6 +11,8 @@
       gatoEspecifico.set(i+j*4);
     }
 
+
+
     const maxRating = d3.max(series, (d) => d.Rating)
     const minRating = d3.min(series, (d) => d.Rating)
     const diamRating = d3.scaleLinear()
@@ -61,7 +63,7 @@
       <div class="person-container">
         <button class="gato-interactivo" style="
               width: {diamRating(serie.Rating)*0.634}px; 
-              height: {diamRating(serie.Rating)}px; " on:click={() => manejarClick(i,j)}>click</button>
+              height: {diamRating(serie.Rating)}px; " on:click={() => manejarClick(i,j)}><a href="#down">Click Here to Smoothly Scroll Down</a></button>
 
         {#if serie.Tipo == "Serializada"}
           <img
