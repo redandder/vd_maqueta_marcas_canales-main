@@ -94,46 +94,17 @@
         </div>
         -->
         <div><img src="/images/GuiaVisual2.svg" width="950" alt="anillos" /></div>
-    <button on:click={cerrarPopup}>Cerrar</button>
+    <button class="boton-cerrar-popup" on:click={cerrarPopup}>Cerrar</button>
   </div>
   </div>
   
   <div class="header">
-    <!--<img src="/images/logo_referencias.svg" width="190" alt="anillos" /> -->
     <p class="bajada">
       Una visualización que explora distintos datos de series animadas inspiradas en líneas de juguetes
     </p>
-    <!--
-    <img
-      class="referencias"
-      src="/images/referencias.svg"
-      width="490"
-      alt="anillos"
-    />
-    -->
   </div>
 
-    <!-- Conedor de las entidades 
-    <div class="container">
-      
-
-      {#each atletas as atleta}
-        <div class="person-container">
-          <div
-            class="person"
-            style="
-              border-color: {colorContinentes(atleta.continent)};
-              background-color:{colorGenero(atleta.gender)}; 
-              width: {diamMedallas(atleta.medallas)}px; 
-              height: {diamMedallas(atleta.medallas)}px; 
-              border-width: {grosorPartic(atleta.participations)}px; 
-            ">
-          </div>
-        </div>
-      {/each}
-     Fin iteración 
-
-    </div>-->
+  
     <div id="guia-container">
       <img src="/images/nube.svg" class="fondo-nube" alt=""/>
       <button class="guia-button" on:click={abrirPopup}>
@@ -149,7 +120,7 @@
         
           <CuadroGato />
         
-                  <div class="cuadro-texto"> 
+          <div class="cuadro-texto"> 
             <h2>¡{series[$gatoEspecifico].Nombre} podría ser tu próximo amigo de peluche!</h2>
             <p>Esta serie es <strong>{series[$gatoEspecifico].Tipo.toLowerCase()}</strong> y tiene <strong>{series[$gatoEspecifico].Duracion}</strong> episodios en total.</p>
             <p>Tiene un puntaje de <strong>{series[$gatoEspecifico].Rating}</strong> en IMBD y recaudó <strong>{series[$gatoEspecifico].Ventas.toLocaleString()}</strong> millones de dólares en ventas de juguetes. ¡Un montón!</p>
@@ -269,7 +240,6 @@
     gap: 30px;
     margin-bottom: 100px;
     flex-wrap: wrap;
-
     animation: flotar 2s ease-in-out infinite;
   }
   #guia-container:hover {
@@ -281,13 +251,20 @@
     font-size: 1em;
     color: #3c3c3c;
     width: 300px;
-    font-size: 18px;
+    font-size: 22px;
     user-select: none;
     z-index: 50;
     transform: translateY(50%);
     font-family: "Pangolin", cursive;
+    border-radius: 25px;
+    transform-origin: center center;
   }
 
+  .guia-button:hover {
+    filter: brightness(150%);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05) translateY(50%);
+  }
   button {
     text-align: center;
     background-color: unset;
@@ -296,10 +273,6 @@
     width: 300px;
     font-size: 18px;
     user-select: none;
-  }
-  button:hover {
-    opacity: 0.5;
-    
   }
   .guia-visualizacion {
     position: fixed;
@@ -388,6 +361,29 @@
   }
 .btn-arriba:hover {
   opacity: 1;
+}
+.boton-cerrar-popup {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 14px 28px;
+    background-color: #ffe4f0;
+    color: #5b3c40;
+    border: 2px solid #ffcce1;
+    border-radius: 25px;
+    font-size: 22px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: "Pangolin", cursive;
+}
+.boton-cerrar-popup:hover {
+    filter: brightness(150%);
+    background-color: #ffd6ec;
+    border-color: #ffb6d1;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
 }
 
 </style>
