@@ -136,6 +136,7 @@
       <button class="guia-button" on:click={abrirPopup}>
         <p>Guía de visualización</p>
       </button>
+    </div>
     <div class="gatos-visualizacion">
     <Gatos series={series} />
     </div>
@@ -242,12 +243,10 @@
     transform: translate(-4%, -25%);
     z-index: 0;
   }
-  .fondo-nube:hover{
-    animation: flotar 3s ease-in-out infinite;
-  }
+
   @keyframes flotar {
-    0%, 100% {transform: translate(-4%, -30%);}
-    50% {transform: translate(-4%, -20%);}
+    0%, 100% {transform: translate(0%, -40%);}
+    50% {transform: translate(0%, -20%);}
   }
   #guia-container {
     display: flex;
@@ -258,8 +257,11 @@
     gap: 30px;
     margin-bottom: 100px;
     flex-wrap: wrap;
+    animation: flotar 3s ease-in-out infinite;
   }
-
+  #guia-container:hover {
+    animation:none;
+  }
   .guia-button {
     text-align: center;
     font-size: 1em;
@@ -268,6 +270,7 @@
     font-size: 18px;
     user-select: none;
     z-index: 50;
+    transform: translateY(50%);
   }
   button {
     text-align: center;

@@ -244,11 +244,11 @@
     opacity: 0;
   }
   @keyframes salto {
-    0%   { transform: translateY(0); }
-    30%  { transform: translateY(-20px); }
-    50%  { transform: translateY(0); }
-    70%  { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
+    0%   {transform: translateY(0);}
+    30%  {transform: translateY(-20px);}
+    50%  {transform: translateY(0);}
+    70%  {transform: translateY(-10px);}
+    100% {transform: translateY(0);}
   }
 
   .person-container:hover {
