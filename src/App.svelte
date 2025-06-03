@@ -51,6 +51,7 @@
 <main>
   <div id="overlay" class="hidden">
     <div id="guia-visualizacion" class="guia-visualizacion hidden">
+      <!--
       <div class="guia-box">
         <div class="gatito-item">
           <img class="gatitoImg" src="./images/GatitoDer.svg" alt="" style="">
@@ -91,6 +92,8 @@
         <div class="guia-box">
           <p># Manchas = # Ganancias por ventas de juguetes</p>
         </div>
+        -->
+        <div><img src="/images/GuiaVisualPrueba.svg" width="950" alt="anillos" /></div>
     <button on:click={cerrarPopup}>Cerrar</button>
   </div>
   </div>
