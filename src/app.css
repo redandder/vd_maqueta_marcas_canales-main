@@ -1,7 +1,4 @@
 /* Estilos globales */
-* {
-    font-family: "Pangolin", cursive;
-}
 .pangolin-regular {
   font-family: "Pangolin", cursive;
   font-weight: 400;
@@ -20,6 +17,7 @@
 }
 body {
     background-color: #81C2E8;
+    font-family: "Pangolin", cursive;
 }
 html {
     scroll-behavior: smooth;
@@ -34,6 +32,7 @@ html {
     overflow: hidden;
     border-radius: 0 0 85% 85% / 30%;
     color: white;
+    font-family: "Gloria Hallelujah", cursive;
 }
 .header-overlay {
     width: 100%;
@@ -51,6 +50,7 @@ html {
     overflow: hidden;
     border-radius: 85% 85% 0% 0% / 30%;
     color: white;
+    font-size: 20px;
 }
 .footer-overlay {
     width: 100%;
@@ -59,11 +59,12 @@ html {
     background: brown;
 }
 a.button {
-    padding: 1px 6px;
+    padding: 10px 10px;
     border: 1px outset buttonborder;
     border-radius: 3px;
     background-color: antiquewhite;
     text-decoration: none;
+    margin-top: 20px;
 }
 a.button:hover {
     filter: brightness(150%);

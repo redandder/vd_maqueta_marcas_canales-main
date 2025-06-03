@@ -258,6 +258,7 @@
     margin-bottom: 100px;
     flex-wrap: wrap;
     animation: flotar 3s ease-in-out infinite;
+    
   }
   #guia-container:hover {
     animation:none;
@@ -271,6 +272,7 @@
     user-select: none;
     z-index: 50;
     transform: translateY(50%);
+    font-family: "Pangolin", cursive;
   }
   button {
     text-align: center;
