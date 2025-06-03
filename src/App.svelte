@@ -145,14 +145,14 @@
         <div class="container-gato-especifico">
           <CuadroGato />
           <div class="cuadro-texto"> 
-            <h2>¡Conocé a {series[$gatoEspecifico].Nombre}!</h2>
+            <h2>¡{series[$gatoEspecifico].Nombre} podría ser tu próximo amigo de peluche!</h2>
             <p>Esta serie es <strong>{series[$gatoEspecifico].Tipo.toLowerCase()}</strong> y tiene <strong>{series[$gatoEspecifico].Duracion}</strong> episodios en total.</p>
             <p>Tiene un puntaje de <strong>{series[$gatoEspecifico].Rating}</strong> en IMBD y recaudó <strong>{series[$gatoEspecifico].Ventas.toLocaleString()}</strong> millones de dólares en ventas de juguetes. ¡Un montón!</p>
-            <p>Si te gustan las aventuras divertidas y llenas de color, <strong>{series[$gatoEspecifico].Nombre}</strong> es para vos.</p>
+            <p>¿No te gustaría abrazar a <strong>{series[$gatoEspecifico].Nombre}</strong>?</p>
           </div>
         </div>
       {:else}
-        <p>Seleccioná un gato.</p>
+        <p>Hace click para descubrir a tu próximo amigo de peluche.</p>
       {/if}
       
 
@@ -162,7 +162,6 @@
 <style>
   main {
     width: 100%;
-    font-family: 'Short Stack', cursive;
   }
   .header {
     display: flex;
@@ -230,11 +229,6 @@
     text-transform: uppercase;
     margin: 0;
     margin-top: 8px;
-  }
-  .deporte {
-    font-size: 14px;
-    color: #666;
-    margin: 0;
   }
   .referencias {
     margin-top: 50px;
@@ -348,14 +342,13 @@
     margin-top: 100px;
     height: 400px;
     width: 100%;
-    background-color: aquamarine;
+    background-color: antiquewhite;
     display: flex;
     flex-direction: column;
   }
   .cuadro-texto {
     width: 400px;
     align-items: center;
-    transform: translateY(15%)
   }
   .btn-arriba {
     position: absolute;

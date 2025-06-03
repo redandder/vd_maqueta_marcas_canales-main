@@ -9,6 +9,7 @@ body {
 }
 html {
   scroll-behavior: smooth;
+  font-family: 'Short Stack', cursive;
  }
 .header-container{
     text-align: center;
@@ -42,4 +43,11 @@ html {
     height: 100%;
     padding: 50px;
     background: brown;
+}
+a.button {
+    padding: 1px 6px;
+    border: 1px outset buttonborder;
+    border-radius: 3px;
+    background-color: antiquewhite;
+    text-decoration: none;
 }
