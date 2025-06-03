@@ -1,7 +1,18 @@
 /* Estilos globales */
 * {
-    font-family: "Gloria Hallelujah", sans-serif;
+    font-family: "Pangolin", cursive;
 }
+.pangolin-regular {
+  font-family: "Pangolin", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.gloria-hallelujah-regular {
+  font-family: "Gloria Hallelujah", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
 #app{
     position: relative;
     max-width: 1580px;
