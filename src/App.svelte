@@ -93,7 +93,7 @@
           <p># Manchas = # Ganancias por ventas de juguetes</p>
         </div>
         -->
-        <div><img src="/images/GuiaVisual2.svg" width="950" alt="anillos" /></div>
+        <div><img src="/images/GuiaVisualBlanca.svg" width="950" alt="anillos" /></div>
     <button class="boton-cerrar-popup" on:click={cerrarPopup}>Cerrar</button>
   </div>
   </div>
@@ -281,7 +281,7 @@
     transform: translate(-50%, -50%);
     width: 800px;
     padding: 20px;
-    background:rgba(240, 215, 134, 1);
+    background:rgb(255, 255, 255);    
     z-index: 200;
     text-align: center;
     border-style: solid;
