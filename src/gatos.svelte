@@ -197,7 +197,7 @@
     z-index: 3;
   }
   .manchas{
-      bottom: -1.5%;
+      bottom: -3.5%;
          position: absolute;
     mix-blend-mode: multiply;
     z-index: 3;
@@ -207,9 +207,14 @@
     /*
     left: 2%;
     right: 3.10%;
-    */
-    bottom: -2%;  
+     */
+    bottom: -4%;  
+
+
+
     
+
+ 
  
 
    
