@@ -6,10 +6,10 @@
 }
 body {
     background-color: #81C2E8;
+    font-family: "Gloria Hallelujah", sans-serif;
 }
 html {
   scroll-behavior: smooth;
-  font-family: 'Short Stack', cursive;
  }
 .header-container{
     text-align: center;
