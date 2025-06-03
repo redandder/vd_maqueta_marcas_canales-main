@@ -1,4 +1,7 @@
 /* Estilos globales */
+* {
+    font-family: "Gloria Hallelujah", sans-serif;
+}
 #app{
     position: relative;
     max-width: 1580px;
@@ -6,10 +9,9 @@
 }
 body {
     background-color: #81C2E8;
-    font-family: "Gloria Hallelujah", sans-serif;
 }
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
  }
 .header-container{
     text-align: center;
