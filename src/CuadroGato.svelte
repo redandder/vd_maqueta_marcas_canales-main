@@ -28,7 +28,14 @@
 </script>
 
 {#if serie}
-  <div class="gato-wrapper">
+
+    <div class="contenedor">
+              <img
+          class="marco"
+          src="./images/marco-foto.svg"
+          alt="">
+   
+    
     <div class="person-container">
 
       {#if serie.Tipo === "Serializada"}
@@ -78,18 +85,38 @@
       </div>
     </div>
   </div>
+
+
 {/if}
 
 <style>
+  .contenedor{
+    display: grid;
+    height: 600px
+  
+
+  }
+  .marco{
+  grid-column-start: 2;
+  grid-column-end: five;
+  grid-row-start: row1-start;
+  grid-row-end: 3;
+        position: absolute;
+    z-index: 5;
+
+}
   .person-container {
+      grid-column-start: 1;
+  grid-column-end: span col4-start;
+  grid-row-start: row1-end;
+  grid-row-end: span 2;
     display: flex;
     position: relative;
     align-items: flex-end;
-    justify-content: center;
-    flex: 360px 0 0;
-    width: 400px;
-    margin: auto;
-    height: 800px;
+ 
+    z-index: 1;
+
+    background-image:url(/images/fondo-colina.png);
     
     
   }
@@ -110,13 +137,6 @@
   }
 
 
-  .gato-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    height: 360px;
-    width: 400px;
-  }
+
 
   </style>

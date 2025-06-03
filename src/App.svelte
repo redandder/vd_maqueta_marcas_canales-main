@@ -140,27 +140,34 @@
     <div class="gatos-visualizacion">
     <Gatos series={series} />
     </div>
-
-  <div class="seccion4" id="down">
+<input type="checkbox" id="down" />
+  <div class="seccion4" >
       {#if $gatoEspecifico !== undefined && series[$gatoEspecifico]}
-        <div class="container-gato-especifico">
+        
           <CuadroGato />
-          <div class="cuadro-texto"> 
+        
+                  <div class="cuadro-texto"> 
             <h2>¡{series[$gatoEspecifico].Nombre} podría ser tu próximo amigo de peluche!</h2>
             <p>Esta serie es <strong>{series[$gatoEspecifico].Tipo.toLowerCase()}</strong> y tiene <strong>{series[$gatoEspecifico].Duracion}</strong> episodios en total.</p>
             <p>Tiene un puntaje de <strong>{series[$gatoEspecifico].Rating}</strong> en IMBD y recaudó <strong>{series[$gatoEspecifico].Ventas.toLocaleString()}</strong> millones de dólares en ventas de juguetes. ¡Un montón!</p>
             <p>¿No te gustaría abrazar a <strong>{series[$gatoEspecifico].Nombre}</strong>?</p>
           </div>
-        </div>
-      {:else}
-        <p>Hace click para descubrir a tu próximo amigo de peluche.</p>
+
       {/if}
+      <label for="down"></label>
       
 
   </div>
 </main>
 
 <style>
+  #down {
+  display: none;
+}
+
+#down:checked ~ * .seccion4 {
+  visibility: visible;
+}
   main {
     width: 100%;
   }
@@ -188,6 +195,7 @@
   .headline b {
     display: block;
   }
+  /*
   .container-gato-especifico{
     display: flex;
     justify-content: flex-start;
@@ -197,6 +205,7 @@
    row-gap: 0px;
     column-gap: 50px;
   }
+    */
   .gatos-visualizacion{
     background: url("/images/cielo.svg");
     max-width: 3020px;
@@ -257,10 +266,11 @@
     gap: 30px;
     margin-bottom: 100px;
     flex-wrap: wrap;
-    animation: flotar 3s ease-in-out infinite;
+    animation: flotar 2s ease-in-out infinite;
   }
   #guia-container:hover {
-    animation:none;
+
+     animation-play-state: paused;
   }
   .guia-button {
     text-align: center;
@@ -272,6 +282,7 @@
     z-index: 50;
     transform: translateY(50%);
   }
+
   button {
     text-align: center;
     background-color: unset;
@@ -283,6 +294,7 @@
   }
   button:hover {
     opacity: 0.5;
+    
   }
   .guia-visualizacion {
     position: fixed;
@@ -342,16 +354,20 @@
   }
   
   .seccion4 {
+ 
+    display: grid;
+    grid-template-columns: 2fr 2fr;
     margin-top: 100px;
-    height: 400px;
-    width: 100%;
-    background-image: url("/images/fondo-colina.png");
-    display: flex;
-    flex-direction: column;
+ 
+   
+    background-color: aqua;
+   /* background-image: url("/images/fondo-colina.png");*/
+    
   }
   .cuadro-texto {
     width: 400px;
     align-items: center;
+    margin: auto;
   }
   .btn-arriba {
     position: absolute;
