@@ -37,6 +37,7 @@ html {
     position: relative;
     overflow: hidden;
     border-radius: 85% 85% 0% 0% / 30%;
+    color: white;
 }
 .footer-overlay {
     width: 100%;
@@ -50,4 +51,7 @@ a.button {
     border-radius: 3px;
     background-color: antiquewhite;
     text-decoration: none;
+}
+a.button:hover {
+    filter: brightness(150%);
 }

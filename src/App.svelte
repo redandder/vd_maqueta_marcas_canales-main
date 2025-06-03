@@ -342,7 +342,7 @@
     margin-top: 100px;
     height: 400px;
     width: 100%;
-    background-color: antiquewhite;
+    background-image: url("/images/fondo-colina.png");
     display: flex;
     flex-direction: column;
   }
