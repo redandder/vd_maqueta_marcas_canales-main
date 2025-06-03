@@ -266,6 +266,7 @@
     gap: 30px;
     margin-bottom: 100px;
     flex-wrap: wrap;
+<<<<<<< HEAD
     animation: flotar 2s ease-in-out infinite;
   }
   #guia-container:hover {
@@ -281,6 +282,7 @@
     user-select: none;
     z-index: 50;
     transform: translateY(50%);
+    font-family: "Pangolin", cursive;
   }
 
   button {
