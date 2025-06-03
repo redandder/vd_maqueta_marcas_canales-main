@@ -266,7 +266,7 @@
     gap: 30px;
     margin-bottom: 100px;
     flex-wrap: wrap;
-<<<<<<< HEAD
+
     animation: flotar 2s ease-in-out infinite;
   }
   #guia-container:hover {
