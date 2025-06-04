@@ -38,7 +38,7 @@
           <img class="colina"
           src="./images/fondo-colina.png"
           alt=""
-          style="height: {diamRating(serie.Rating) * 1.2}px">
+          style="height: {diamRating(serie.Rating) * 1.2}px; width: {diamRating(serie.Rating)*0.674}px">
     
     <div class="person-container">
 
@@ -104,9 +104,9 @@
   .marco {
     position: absolute;
     z-index: 5;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 45%;
+    bottom:0;
+    transform: translateY(-55%);
+    top: 46%;
     overflow: hidden;
   }
   .person-container {
