@@ -18,6 +18,7 @@
 body {
     background-color: #81C2E8;
     font-family: "Pangolin", cursive;
+    overflow-x: hidden;
 }
 html {
     scroll-behavior: smooth;
@@ -40,6 +41,13 @@ html {
     padding: 50px;
     background: #8E2F1A;
 }
+.titulo-nuevo{
+    width:500px;
+    max-width: 90%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 .footer-container{
     text-align: center;
     width: 100%;
@@ -51,6 +59,13 @@ html {
     border-radius: 85% 85% 0% 0% / 30%;
     color: white;
     font-size: 20px;
+}
+.titulo-idea{
+width: 500px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  max-width:90%;
 }
 .footer-overlay {
     width: 100%;

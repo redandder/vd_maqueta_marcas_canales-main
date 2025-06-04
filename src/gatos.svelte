@@ -3,15 +3,26 @@
     export let series= ""
     import Color from "/src/color.svelte"
     import  Mancha from "/src/mancha.svelte"
-    import { llamadoGato, gatoEspecifico } from '/src/store.js';
-    import { get } from 'svelte/store';
+    import { llamadoGato, gatoEspecifico } from '/src/store.js'
+    import { get } from 'svelte/store'
+    import { onMount } from 'svelte'
+    import { fade } from 'svelte/transition'
 
     function manejarClick(i, j) {
       llamadoGato.update(n => n + 1);
       gatoEspecifico.set(i+j*4);
     }
 
+      let mostrarBoton = false;
 
+  function manejarScroll() {
+    mostrarBoton = window.scrollY > 400; 
+  }
+
+  onMount(() => {
+    window.addEventListener('scroll', manejarScroll);
+    return () => window.removeEventListener('scroll', manejarScroll);
+  })
 
     const maxRating = d3.max(series, (d) => d.Rating)
     const minRating = d3.min(series, (d) => d.Rating)
@@ -49,11 +60,20 @@
 
 
 </script>
+{#if mostrarBoton}
+  <button class="volver-a-guia"
+          on:click={() => window.scrollTo({ top: document.getElementById("guia-container").offsetTop, behavior: "smooth" })}
+          transition:fade>
+    Volver a la guía
+  </button>
+{/if}
                     <img
             class="techo"
             src="./images/techoo.svg"
             alt="">
+            
           <div class="mueble">
+            
 <div class="container">
     {#each arr as cuatroG, j}
       <!-- Iteramos la data para visualizar c/ entidad -->
@@ -197,7 +217,7 @@
     z-index: 3;
   }
   .manchas{
-      bottom: -1.5%;
+      bottom: -3.5%;
          position: absolute;
     mix-blend-mode: multiply;
     z-index: 3;
@@ -207,9 +227,14 @@
     /*
     left: 2%;
     right: 3.10%;
-    */
-    bottom: -2%;  
+     */
+    bottom: -4%;  
+
+
+
     
+
+ 
  
 
    
@@ -224,10 +249,12 @@
     background-size: 190px;
     background-repeat: no-repeat;
     background-position: center;
-    font-size: 14px;
+    font-size: 16px;
     width: 150px;
     padding: 10px;
     transform: translateY(-20%);
+    transition: all 0.3s ease;
+    cursor: default;
   }
 
   .gato-wrapper {
@@ -237,6 +264,7 @@
     position: relative;
     height: 176px;
     width: 200px;
+    transition: transform 0.4s ease-in-out;
   }
   .gato-interactivo{
     z-index: 900;
@@ -244,16 +272,63 @@
     opacity: 0;
   }
   @keyframes salto {
-    0%   {transform: translateY(0);}
-    30%  {transform: translateY(-20px);}
-    50%  {transform: translateY(0);}
-    70%  {transform: translateY(-10px);}
-    100% {transform: translateY(0);}
+    0%   {transform: translateY(0px);}
+    15%  {transform: translateY(-20px);}
+    30%  {transform: translateY(0px);}
+    45%  {transform: translateY(-10px);}
+    60%  {transform: translateY(0px);}
+    100% {transform: translateY(0px);}
   }
 
-  .person-container:hover {
-    animation: salto 0.6s ease-out;
+
+  .person-container, .nombre-container {
+    transition: all 0.6s ease; 
+  }
+
+  .gato-wrapper:hover  {
+    transform: scale(1.1);
+  }
+
+  .gato-wrapper:hover .nombre-container {
+    transform: translateY(-20%);
+  }
+
+  .gato-wrapper:hover .person-container {
+    animation: salto 1.4s ease-in-out infinite;
   }
   
+  .gato-wrapper:hover {
+
+     animation-play-state: paused;
+  }
+
+.volver-a-guia {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 12px 20px;
+  z-index: 1000;
+  cursor: pointer;
+
+    background-color: #ffe4f0;
+    color: #5b3c40;
+    border: 2px solid #ffcce1;
+    border-radius: 25px;
+    font-size: 22px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: "Pangolin", cursive;
+}
+.volver-a-guia:hover {
+      filter: brightness(150%);
+    background-color: #ffd6ec;
+    border-color: #ffb6d1;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
 
   </style>

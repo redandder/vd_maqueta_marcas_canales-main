@@ -30,11 +30,9 @@
 {#if serie}
 
     <div class="contenedor">
-              <img
-          class="marco"
-          src="./images/marco-foto.svg"
-          alt="">
-   
+              <img class="marco" src="./images/marco-foto.svg"
+          alt=""
+          style="height: {diamRating(serie.Rating) * 1.5}px">
     
     <div class="person-container">
 
@@ -90,38 +88,33 @@
 {/if}
 
 <style>
-  .contenedor{
-    display: grid;
-    height: 600px
-  
-
-  }
-  .marco{
-  grid-column-start: 2;
-  grid-column-end: five;
-  grid-row-start: row1-start;
-  grid-row-end: 3;
-        position: absolute;
-    z-index: 5;
-
-}
-  .person-container {
-      grid-column-start: 1;
-  grid-column-end: span col4-start;
-  grid-row-start: row1-end;
-  grid-row-end: span 2;
+  .contenedor {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
     position: relative;
+    transform: rotate(0deg);
+    transition: transform 0.6s ease-in-out; 
+    transform-origin: top center;
+  }
+  .marco {
+    position: absolute;
+    z-index: 0;
+    bottom:5%;
+    transform: translateY(-54%);
+    top: 46%;
+    overflow: hidden;
+  }
+  .person-container {
+    display: flex;
+    justify-content: center;
     align-items: flex-end;
- 
-    z-index: 1;
-
-    background-image:url(/images/fondo-colina.png);
-    
-    
+    position: relative;
+    z-index: 3;
   }
     .person {
-        position: absolute;
+        position: relative;
         z-index: 3;
   }
   .manchas{
@@ -137,6 +130,17 @@
   }
 
 
+  .contenedor:hover{
+    animation: move 3.5s ease-in-out infinite;
+    transform-origin: top center;
+    animation-fill-mode: both;
+  }
 
-
+  @keyframes move {
+    0%   {transform: rotate(-3deg);}
+    25%  {transform: rotate(3deg);}
+    50%  {transform: rotate(-3deg);}
+    75%  {transform: rotate(3deg);}
+    100% {transform: rotate(-3deg);}
+  }
   </style>

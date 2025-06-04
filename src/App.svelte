@@ -6,7 +6,6 @@
   import {llamadoGato, gatoEspecifico} from "/src/store.js"
   import CuadroGato from "/src/CuadroGato.svelte"
 
-  console.log("atletas", atletas)
   console.log("series", series)
 
   /* 1. Escala para participaciones (cuantitativo > grosor) */
@@ -45,92 +44,40 @@
     document.body.style.paddingRight = "";
   }
 
+  document.addEventListener('DOMContentLoaded', () => {
+  const button = document.querySelector('.guia-button');
+  const nube = document.querySelector('.fondo-nube'); // Selecciona directamente la nube
+
+  if (button && nube) {
+    button.addEventListener('mouseenter', () => {
+      nube.classList.add('nube-escalada');
+    });
+
+    button.addEventListener('mouseleave', () => {
+      nube.classList.remove('nube-escalada');
+    });
+  }
+});
+
+
 </script>
 
 
 <main>
   <div id="overlay" class="hidden">
     <div id="guia-visualizacion" class="guia-visualizacion hidden">
-      <div class="guia-box">
-        <div class="gatito-item">
-          <img class="gatitoImg" src="./images/GatitoDer.svg" alt="" style="">
-          <p>Serializada</p>
-        </div>
-        <div class="gatito-item">
-          <img class="gatitoImg" src="./images/GatitoDosManos.svg" alt="" style="">
-          <p>Ambas</p>
-        </div>
-        <div class="gatito-item">
-          <img class="gatitoImg" src="./images/GatitoIzq.svg" alt="" style="">
-          <p>Episódica</p>
-        </div>
-      </div>
-      <img src="/images/doodle-line.svg" alt="" style="height: 5px; color: #3c3c3c">
-        <div class="guia-box">
-          <p>4 episodios</p>
-          <div class="circulo-color" style="background-color: #FDF8F2"></div>
-          <div class="circulo-color" style="background-color: #EFCFA9"></div>
-          <div class="circulo-color" style="background-color: #DF9F53"></div>
-          <div class="circulo-color" style="background-color: #AC6C20"></div>
-          <div class="circulo-color" style="background-color: #6C4414"></div>
-          <p>200 episodios</p>
-        </div>
-        <img src="/images/doodle-line.svg" alt="" style="height: 5px;">
-        <div class="guia-box">
-          <img class="gatitoImg" src="./images/GatitoDosManos.svg" alt="" style="height: 100px">
-          <img class="gatitoImg" src="./images/GatitoDosManos.svg" alt="" style="height: 60px; top: 50%; transform: translateY(50%);">
-        </div>
-        <div class="guia-box">
-          <p>Rating</p>
-        </div>
-        <img src="/images/doodle-line.svg" alt="" style="height: 5px;">
-        <div class="guia-box">
-          <img src="/images/MuchasManchas.svg" alt="" style="height: 100px">
-          <img src="/images/PocasManchas.svg" alt="" style="height: 100px">
-        </div>
-        <div class="guia-box">
-          <p># Manchas = # Ganancias por ventas de juguetes</p>
-        </div>
-    <button on:click={cerrarPopup}>Cerrar</button>
+        <div><img src="/images/GuiaVisualCorregida.svg" width="950" alt="anillos" /></div>
+    <button class="boton-cerrar-popup" on:click={cerrarPopup}>Cerrar</button>
   </div>
   </div>
   
   <div class="header">
-    <!--<img src="/images/logo_referencias.svg" width="190" alt="anillos" /> -->
     <p class="bajada">
-      Una visualización que explora distintos datos de series animadas inspiradas en líneas de juguetes
+     Durante décadas, muchas líneas de juguetes dieron origen a series animadas pensadas para promocionarlos. Esta colección recorre esas historias que nacieron del marketing y terminaron marcando infancias.
     </p>
-    <!--
-    <img
-      class="referencias"
-      src="/images/referencias.svg"
-      width="490"
-      alt="anillos"
-    />
-    -->
   </div>
 
-    <!-- Conedor de las entidades 
-    <div class="container">
-      
-
-      {#each atletas as atleta}
-        <div class="person-container">
-          <div
-            class="person"
-            style="
-              border-color: {colorContinentes(atleta.continent)};
-              background-color:{colorGenero(atleta.gender)}; 
-              width: {diamMedallas(atleta.medallas)}px; 
-              height: {diamMedallas(atleta.medallas)}px; 
-              border-width: {grosorPartic(atleta.participations)}px; 
-            ">
-          </div>
-        </div>
-      {/each}
-     Fin iteración 
-
-    </div>-->
+  
     <div id="guia-container">
       <img src="/images/nube.svg" class="fondo-nube" alt=""/>
       <button class="guia-button" on:click={abrirPopup}>
@@ -145,10 +92,16 @@
       {#if $gatoEspecifico !== undefined && series[$gatoEspecifico]}
         
           <CuadroGato />
-        
-                  <div class="cuadro-texto"> 
-            <h2>¡{series[$gatoEspecifico].Nombre} podría ser tu próximo amigo de peluche!</h2>
-            <p>Esta serie es <strong>{series[$gatoEspecifico].Tipo.toLowerCase()}</strong> y tiene <strong>{series[$gatoEspecifico].Duracion}</strong> episodios en total.</p>
+          <img class="fondo-nube-cuadro"
+          src="./images/nube.svg"
+          alt="">
+          <div class="cuadro-texto"> 
+            <h2>¿{series[$gatoEspecifico].Nombre} marcó tu infancia?</h2>
+            {#if series[$gatoEspecifico].Tipo == "Ambas"}
+              <p>Esta serie es tanto <strong>Episódica</strong> como <strong>Serializada</strong> y tiene <strong>{series[$gatoEspecifico].Duracion}</strong> episodios en total.</p>
+            {:else}
+              <p>Esta serie es <strong>{series[$gatoEspecifico].Tipo.toLowerCase()}</strong> y tiene <strong>{series[$gatoEspecifico].Duracion}</strong> episodios en total.</p>
+            {/if}
             <p>Tiene un puntaje de <strong>{series[$gatoEspecifico].Rating}</strong> en IMBD y recaudó <strong>{series[$gatoEspecifico].Ventas.toLocaleString()}</strong> millones de dólares en ventas de juguetes. ¡Un montón!</p>
             <p>¿No te gustaría abrazar a <strong>{series[$gatoEspecifico].Nombre}</strong>?</p>
           </div>
@@ -161,13 +114,6 @@
 </main>
 
 <style>
-  #down {
-  display: none;
-}
-
-#down:checked ~ * .seccion4 {
-  visibility: visible;
-}
   main {
     width: 100%;
   }
@@ -179,33 +125,15 @@
     margin-top: 20px;
     margin-bottom: 80px;
   }
-  .headline {
-    font-size: 40px;
-    font-weight: 300;
-    line-height: 1.2;
-    text-align: center;
-    margin: 20px;
-  }
   .bajada {
     font-size: 24px;
     font-weight: 300;
     text-align: center;
-    margin: 10px;
+    margin: 50px;
+    padding-left: 25%;
+    padding-right: 25%;
+    margin-top:10px;
   }
-  .headline b {
-    display: block;
-  }
-  /*
-  .container-gato-especifico{
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin: 50;
-    flex-wrap: wrap;
-   row-gap: 0px;
-    column-gap: 50px;
-  }
-    */
   .gatos-visualizacion{
     background: url("/images/cielo.svg");
     max-width: 3020px;
@@ -252,7 +180,20 @@
     transform: translate(-4%, -25%);
     z-index: 0;
   }
+  .guia-button, .fondo-nube {
+    transition: all 0.3s ease; 
+  }
 
+  #guia-container:hover .fondo-nube {
+    transform: scale(1.1) translate(-4%, -25%);
+  }
+
+  #guia-container:hover .guia-button {
+    filter: brightness(150%);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05) translateY(50%);
+  }
+  
   @keyframes flotar {
     0%, 100% {transform: translate(0%, -40%);}
     50% {transform: translate(0%, -20%);}
@@ -266,7 +207,6 @@
     gap: 30px;
     margin-bottom: 100px;
     flex-wrap: wrap;
-
     animation: flotar 2s ease-in-out infinite;
   }
   #guia-container:hover {
@@ -278,12 +218,15 @@
     font-size: 1em;
     color: #3c3c3c;
     width: 300px;
-    font-size: 18px;
+    font-size: 22px;
     user-select: none;
     z-index: 50;
     transform: translateY(50%);
     font-family: "Pangolin", cursive;
+    border-radius: 25px;
+    transform-origin: center center;
   }
+
 
   button {
     text-align: center;
@@ -294,10 +237,6 @@
     font-size: 18px;
     user-select: none;
   }
-  button:hover {
-    opacity: 0.5;
-    
-  }
   .guia-visualizacion {
     position: fixed;
     top: 50%;
@@ -305,12 +244,10 @@
     transform: translate(-50%, -50%);
     width: 800px;
     padding: 20px;
-    background: antiquewhite;
+    background:rgb(255, 255, 255);    
     z-index: 200;
     text-align: center;
-    border-style: solid;
-    border-width: 10px 10px 10px 10px;
-    border-image: url("/images/border.svg") 10 10 10 10 stretch stretch;
+    border-radius: 10%;
   }
   .hidden {
     display: none;
@@ -359,32 +296,63 @@
  
     display: grid;
     grid-template-columns: 2fr 2fr;
-    margin-top: 100px;
- 
-   
-    background-color: aqua;
-   /* background-image: url("/images/fondo-colina.png");*/
+    margin-top: 60px;
+    margin-bottom: 50px;
     
   }
   .cuadro-texto {
-    width: 400px;
+    display: inline-block;
     align-items: center;
-    margin: auto;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 10%;
+    padding: 12px 20px;
+    box-sizing: content-box;
+    background-color: #ffe4f0;
+    color: #5b3c40;
+    border: 2px solid #ffcce1;
+    border-radius: 25px;
+    font-size: 22px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: "Pangolin", cursive;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor:default;
   }
-  .btn-arriba {
-    position: absolute;
-    z-index: 1000;
-    background-color: #000;
-    color: #fff;
-    padding: 12px 16px;
-    border-radius: 8px;
-    font-size: 18px;
+
+  .cuadro-texto:hover {
+    box-shadow: 0px 0px 20px 10px #fff3f9;
+  }
+.boton-cerrar-popup {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 14px 28px;
+    background-color: #ffe4f0;
+    color: #5b3c40;
+    border: 2px solid #ffcce1;
+    border-radius: 25px;
+    font-size: 22px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
     cursor: pointer;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-  }
-.btn-arriba:hover {
-  opacity: 1;
+    font-family: "Pangolin", cursive;
+}
+.boton-cerrar-popup:hover {
+    filter: brightness(150%);
+    background-color: #ffd6ec;
+    border-color: #ffb6d1;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+.fondo-nube-cuadro {
+  position: absolute;
+  height: 400px;
+  bottom: 4%;
+  z-index: -60;
+  left: 45%;
 }
 
 </style>
