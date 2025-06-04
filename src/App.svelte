@@ -115,7 +115,7 @@
   
   <div class="header">
     <p class="bajada">
-      Una visualización que explora distintos datos de series animadas inspiradas en líneas de juguetes
+     Durante décadas, muchas líneas de juguetes dieron origen a series animadas pensadas para promocionarlos. Esta colección recorre esas historias que nacieron del marketing y terminaron marcando infancias.
     </p>
   </div>
 
@@ -168,6 +168,7 @@
     margin: 50px;
     padding-left: 25%;
     padding-right: 25%;
+    margin-top:10px;
   }
   .gatos-visualizacion{
     background: url("/images/cielo.svg");
