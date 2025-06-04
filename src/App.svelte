@@ -45,6 +45,22 @@
     document.body.style.paddingRight = "";
   }
 
+  document.addEventListener('DOMContentLoaded', () => {
+  const button = document.querySelector('.guia-button');
+  const nube = document.querySelector('.fondo-nube'); // Selecciona directamente la nube
+
+  if (button && nube) {
+    button.addEventListener('mouseenter', () => {
+      nube.classList.add('nube-escalada');
+    });
+
+    button.addEventListener('mouseleave', () => {
+      nube.classList.remove('nube-escalada');
+    });
+  }
+});
+
+
 </script>
 
 
@@ -226,7 +242,20 @@
     transform: translate(-4%, -25%);
     z-index: 0;
   }
+  .guia-button, .fondo-nube {
+    transition: all 0.3s ease; /* Animación fluida */
+  }
 
+  #guia-container:hover .fondo-nube {
+    transform: scale(1.1) translate(-4%, -25%);
+  }
+
+  #guia-container:hover .guia-button {
+    filter: brightness(150%);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05) translateY(50%);
+  }
+  
   @keyframes flotar {
     0%, 100% {transform: translate(0%, -40%);}
     50% {transform: translate(0%, -20%);}
@@ -260,11 +289,7 @@
     transform-origin: center center;
   }
 
-  .guia-button:hover {
-    filter: brightness(150%);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-    transform: scale(1.05) translateY(50%);
-  }
+
   button {
     text-align: center;
     background-color: unset;
