@@ -100,6 +100,9 @@
     align-items: center;
     height: 600px;
     position: relative;
+    transform: rotate(0deg);
+    transition: transform 0.6s ease-in-out; 
+    transform-origin: top center;
   }
   .marco {
     position: absolute;
@@ -136,4 +139,17 @@
     z-index: 0;
   }
 
+  .contenedor:hover{
+    animation: move 3.5s ease-in-out infinite;
+    transform-origin: top center;
+    animation-fill-mode: both;
+  }
+
+  @keyframes move {
+    0%   {transform: rotate(-3deg);}
+    25%  {transform: rotate(3deg);}
+    50%  {transform: rotate(-3deg);}
+    75%  {transform: rotate(3deg);}
+    100% {transform: rotate(-3deg);}
+  }
   </style>
