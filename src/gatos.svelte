@@ -16,10 +16,9 @@
       let mostrarBoton = false;
 
   function manejarScroll() {
-    mostrarBoton = window.scrollY > 300; // ajustá este valor a gusto
+    mostrarBoton = window.scrollY > 400; 
   }
 
-  // Escuchamos el scroll al montar el componente
   onMount(() => {
     window.addEventListener('scroll', manejarScroll);
     return () => window.removeEventListener('scroll', manejarScroll);
