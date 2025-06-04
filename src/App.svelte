@@ -66,7 +66,7 @@
 <main>
   <div id="overlay" class="hidden">
     <div id="guia-visualizacion" class="guia-visualizacion hidden">
-        <div><img src="/images/GuiaVisualBlanca.svg" width="950" alt="anillos" /></div>
+        <div><img src="/images/GuiaVisualCorregida.svg" width="950" alt="anillos" /></div>
     <button class="boton-cerrar-popup" on:click={cerrarPopup}>Cerrar</button>
   </div>
   </div>
