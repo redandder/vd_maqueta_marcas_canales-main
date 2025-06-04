@@ -60,7 +60,13 @@
 
 
 </script>
-
+{#if mostrarBoton}
+  <button class="volver-a-guia"
+          on:click={() => window.scrollTo({ top: document.getElementById("guia-container").offsetTop, behavior: "smooth" })}
+          transition:fade>
+    Volver a la guía
+  </button>
+{/if}
                     <img
             class="techo"
             src="./images/techoo.svg"
@@ -135,13 +141,6 @@
     {/each}
     </div>
     </div>
-{#if mostrarBoton}
-  <button class="volver-a-guia"
-          on:click={() => window.scrollTo({ top: document.getElementById("guia-container").offsetTop, behavior: "smooth" })}
-          transition:fade>
-    Volver a la guía
-  </button>
-{/if}
 
 <style>
   .gatos-con-estante{
