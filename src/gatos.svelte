@@ -244,6 +244,7 @@
     position: relative;
     height: 176px;
     width: 200px;
+    transition: transform 0.4s ease-in-out;
   }
   .gato-interactivo{
     z-index: 900;
@@ -252,9 +253,10 @@
   }
   @keyframes salto {
     0%   {transform: translateY(0px);}
-    30%  {transform: translateY(-15px);}
-    50%  {transform: translateY(0px);}
-    70%  {transform: translateY(-5px);}
+    15%  {transform: translateY(-20px);}
+    30%  {transform: translateY(0px);}
+    45%  {transform: translateY(-10px);}
+    60%  {transform: translateY(0px);}
     100% {transform: translateY(0px);}
   }
 
@@ -272,7 +274,7 @@
   }
 
   .gato-wrapper:hover .person-container {
-    animation: salto 0.6s ease-out;
+    animation: salto 1.4s ease-in-out infinite;
   }
   
   .gato-wrapper:hover {
