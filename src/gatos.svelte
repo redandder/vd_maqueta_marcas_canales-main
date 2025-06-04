@@ -229,7 +229,7 @@
     background-size: 190px;
     background-repeat: no-repeat;
     background-position: center;
-    font-size: 14px;
+    font-size: 16px;
     width: 150px;
     padding: 10px;
     transform: translateY(-20%);

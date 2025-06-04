@@ -66,48 +66,6 @@
 <main>
   <div id="overlay" class="hidden">
     <div id="guia-visualizacion" class="guia-visualizacion hidden">
-      <!--
-      <div class="guia-box">
-        <div class="gatito-item">
-          <img class="gatitoImg" src="./images/GatitoDer.svg" alt="" style="">
-          <p>Serializada</p>
-        </div>
-        <div class="gatito-item">
-          <img class="gatitoImg" src="./images/GatitoDosManos.svg" alt="" style="">
-          <p>Ambas</p>
-        </div>
-        <div class="gatito-item">
-          <img class="gatitoImg" src="./images/GatitoIzq.svg" alt="" style="">
-          <p>Episódica</p>
-        </div>
-      </div>
-      <img src="/images/doodle-line.svg" alt="" style="height: 5px; color: #3c3c3c">
-        <div class="guia-box">
-          <p>4 episodios</p>
-          <div class="circulo-color" style="background-color: #FDF8F2"></div>
-          <div class="circulo-color" style="background-color: #EFCFA9"></div>
-          <div class="circulo-color" style="background-color: #DF9F53"></div>
-          <div class="circulo-color" style="background-color: #AC6C20"></div>
-          <div class="circulo-color" style="background-color: #6C4414"></div>
-          <p>200 episodios</p>
-        </div>
-        <img src="/images/doodle-line.svg" alt="" style="height: 5px;">
-        <div class="guia-box">
-          <img class="gatitoImg" src="./images/GatitoDosManos.svg" alt="" style="height: 100px">
-          <img class="gatitoImg" src="./images/GatitoDosManos.svg" alt="" style="height: 60px; top: 50%; transform: translateY(50%);">
-        </div>
-        <div class="guia-box">
-          <p>Rating</p>
-        </div>
-        <img src="/images/doodle-line.svg" alt="" style="height: 5px;">
-        <div class="guia-box">
-          <img src="/images/MuchasManchas.svg" alt="" style="height: 100px">
-          <img src="/images/PocasManchas.svg" alt="" style="height: 100px">
-        </div>
-        <div class="guia-box">
-          <p># Manchas = # Ganancias por ventas de juguetes</p>
-        </div>
-        -->
         <div><img src="/images/GuiaVisualBlanca.svg" width="950" alt="anillos" /></div>
     <button class="boton-cerrar-popup" on:click={cerrarPopup}>Cerrar</button>
   </div>
@@ -134,7 +92,9 @@
       {#if $gatoEspecifico !== undefined && series[$gatoEspecifico]}
         
           <CuadroGato />
-        
+          <img class="fondo-nube-cuadro"
+          src="./images/nube.svg"
+          alt="">
           <div class="cuadro-texto"> 
             <h2>¿{series[$gatoEspecifico].Nombre} marcó tu infancia?</h2>
             {#if series[$gatoEspecifico].Tipo == "Ambas"}
@@ -287,9 +247,7 @@
     background:rgb(255, 255, 255);    
     z-index: 200;
     text-align: center;
-    border-style: solid;
-    border-width: 10px 10px 10px 10px;
-    border-image: url("/images/border.svg") 10 10 10 10 stretch stretch;
+    border-radius: 10%;
   }
   .hidden {
     display: none;
@@ -358,6 +316,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     font-family: "Pangolin", cursive;
     text-align: center;
+    
 
   }
 .boton-cerrar-popup {
@@ -382,6 +341,13 @@
     border-color: #ffb6d1;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     transform: scale(1.05);
+}
+.fondo-nube-cuadro {
+  position: absolute;
+  height: 400px;
+  bottom: 2%;
+  z-index: -60;
+  left: 45%;
 }
 
 </style>
