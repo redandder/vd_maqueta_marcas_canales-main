@@ -35,7 +35,10 @@
           src="./images/marco-foto.svg"
           alt=""
           style="height: {diamRating(serie.Rating) * 1.5}px">
-   
+          <img class="colina"
+          src="./images/fondo-colina.png"
+          alt=""
+          style="height: {diamRating(serie.Rating) * 1.2}px">
     
     <div class="person-container">
 
@@ -96,9 +99,6 @@
     justify-content: center;
     align-items: center;
     height: 600px;
-    background-image: url(/images/fondo-colina.png);
-    background-size: cover;
-    background-position: center;
     position: relative;
   }
   .marco {
@@ -107,6 +107,7 @@
     transform: translate(-50%, -50%);
     left: 50%;
     top: 45%;
+    overflow: hidden;
   }
   .person-container {
     display: flex;
@@ -130,8 +131,9 @@
     bottom: -6px;  
      
   }
-
-
-
+  .colina {
+    position: absolute;
+    z-index: 0;
+  }
 
   </style>

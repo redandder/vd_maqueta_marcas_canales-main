@@ -339,7 +339,7 @@
   }
   .cuadro-texto {
     width: 500px;
-    height: 500px;
+    max-height: 500px;
     align-items: center;
     margin-left: 20%;
     margin-right: 20%;
