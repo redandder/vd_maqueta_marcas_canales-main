@@ -233,6 +233,8 @@
     width: 150px;
     padding: 10px;
     transform: translateY(-20%);
+    transition: all 0.3s ease;
+    cursor: default;
   }
 
   .gato-wrapper {
@@ -249,16 +251,33 @@
     opacity: 0;
   }
   @keyframes salto {
-    0%   {transform: translateY(0);}
-    30%  {transform: translateY(-20px);}
-    50%  {transform: translateY(0);}
-    70%  {transform: translateY(-10px);}
-    100% {transform: translateY(0);}
+    0%   {transform: translateY(0px);}
+    30%  {transform: translateY(-15px);}
+    50%  {transform: translateY(0px);}
+    70%  {transform: translateY(-5px);}
+    100% {transform: translateY(0px);}
   }
 
-  .person-container:hover {
+
+  .person-container, .nombre-container {
+    transition: all 0.6s ease; 
+  }
+
+  .gato-wrapper:hover  {
+    transform: scale(1.1);
+  }
+
+  .gato-wrapper:hover .nombre-container {
+    transform: translateY(-20%);
+  }
+
+  .gato-wrapper:hover .person-container {
     animation: salto 0.6s ease-out;
   }
   
+  .gato-wrapper:hover {
+
+     animation-play-state: paused;
+  }
 
   </style>
