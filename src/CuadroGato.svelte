@@ -30,9 +30,7 @@
 {#if serie}
 
     <div class="contenedor">
-              <img
-          class="marco"
-          src="./images/marco-foto.svg"
+              <img class="marco" src="./images/marco-foto.svg"
           alt=""
           style="height: {diamRating(serie.Rating) * 1.5}px">
           <img class="colina"
