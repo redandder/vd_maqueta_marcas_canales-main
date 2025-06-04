@@ -33,10 +33,6 @@
               <img class="marco" src="./images/marco-foto.svg"
           alt=""
           style="height: {diamRating(serie.Rating) * 1.5}px">
-          <img class="colina"
-          src="./images/fondo-colina.png"
-          alt=""
-          style="height: {diamRating(serie.Rating) * 1.2}px; width: {diamRating(serie.Rating)*0.674}px">
     
     <div class="person-container">
 
@@ -104,9 +100,9 @@
   }
   .marco {
     position: absolute;
-    z-index: 5;
-    bottom:0;
-    transform: translateY(-55%);
+    z-index: 0;
+    bottom:5%;
+    transform: translateY(-54%);
     top: 46%;
     overflow: hidden;
   }
@@ -132,10 +128,7 @@
     bottom: -6px;  
      
   }
-  .colina {
-    position: absolute;
-    z-index: 0;
-  }
+
 
   .contenedor:hover{
     animation: move 3.5s ease-in-out infinite;
