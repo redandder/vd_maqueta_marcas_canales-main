@@ -6,7 +6,6 @@
   import {llamadoGato, gatoEspecifico} from "/src/store.js"
   import CuadroGato from "/src/CuadroGato.svelte"
 
-  console.log("atletas", atletas)
   console.log("series", series)
 
   /* 1. Escala para participaciones (cuantitativo > grosor) */
@@ -173,7 +172,9 @@
     font-size: 24px;
     font-weight: 300;
     text-align: center;
-    margin: 10px;
+    margin: 50px;
+    padding-left: 25%;
+    padding-right: 25%;
   }
   .gatos-visualizacion{
     background: url("/images/cielo.svg");
@@ -340,10 +341,6 @@
     display: grid;
     grid-template-columns: 2fr 2fr;
     margin-top: 100px;
- 
-   
-    background-color: aqua;
-   /* background-image: url("/images/fondo-colina.png");*/
     
   }
   .cuadro-texto {
