@@ -33,7 +33,8 @@
               <img
           class="marco"
           src="./images/marco-foto.svg"
-          alt="">
+          alt=""
+          style="height: {diamRating(serie.Rating) * 1.5}px">
    
     
     <div class="person-container">
@@ -92,8 +93,9 @@
 <style>
   .contenedor{
     display: grid;
-    height: 600px
-  
+    height: 600px;
+    align-items: center;
+    background-image:url(/images/fondo-colina.png);
 
   }
   .marco{
@@ -101,8 +103,9 @@
   grid-column-end: five;
   grid-row-start: row1-start;
   grid-row-end: 3;
-        position: absolute;
-    z-index: 5;
+  position: absolute;
+  z-index: 5;
+  transform: translateY(-20%);
 
 }
   .person-container {
