@@ -296,7 +296,8 @@
  
     display: grid;
     grid-template-columns: 2fr 2fr;
-    margin-top: 100px;
+    margin-top: 60px;
+    margin-bottom: 50px;
     
   }
   .cuadro-texto {
@@ -349,7 +350,7 @@
 .fondo-nube-cuadro {
   position: absolute;
   height: 400px;
-  bottom: 2%;
+  bottom: 4%;
   z-index: -60;
   left: 45%;
 }
