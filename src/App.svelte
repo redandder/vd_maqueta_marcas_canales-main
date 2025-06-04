@@ -150,13 +150,6 @@
 </main>
 
 <style>
-  #down {
-  display: none;
-}
-
-#down:checked ~ * .seccion4 {
-  visibility: visible;
-}
   main {
     width: 100%;
   }
@@ -344,9 +337,22 @@
     
   }
   .cuadro-texto {
-    width: 400px;
+    width: 500px;
+    height: 500px;
     align-items: center;
-    margin: auto;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 10%;
+    background-color: #ffe4f0;
+    color: #5b3c40;
+    border: 2px solid #ffcce1;
+    border-radius: 25px;
+    font-size: 22px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: "Pangolin", cursive;
+    text-align: center;
+
   }
   .btn-arriba {
     position: absolute;

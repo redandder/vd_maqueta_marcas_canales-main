@@ -91,40 +91,32 @@
 {/if}
 
 <style>
-  .contenedor{
-    display: grid;
-    height: 600px;
-    align-items: center;
-    background-image:url(/images/fondo-colina.png);
-
-  }
-  .marco{
-  grid-column-start: 2;
-  grid-column-end: five;
-  grid-row-start: row1-start;
-  grid-row-end: 3;
-  position: absolute;
-  z-index: 5;
-  transform: translateY(-20%);
-
-}
-  .person-container {
-      grid-column-start: 1;
-  grid-column-end: span col4-start;
-  grid-row-start: row1-end;
-  grid-row-end: span 2;
+  .contenedor {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    background-image: url(/images/fondo-colina.png);
+    background-size: cover;
+    background-position: center;
     position: relative;
+  }
+  .marco {
+    position: absolute;
+    z-index: 5;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 45%;
+  }
+  .person-container {
+    display: flex;
+    justify-content: center;
     align-items: flex-end;
- 
-    z-index: 1;
-
-    background-image:url(/images/fondo-colina.png);
-    
-    
+    position: relative;
+    z-index: 3;
   }
     .person {
-        position: absolute;
+        position: relative;
         z-index: 3;
   }
   .manchas{
