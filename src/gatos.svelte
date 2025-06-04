@@ -3,15 +3,27 @@
     export let series= ""
     import Color from "/src/color.svelte"
     import  Mancha from "/src/mancha.svelte"
-    import { llamadoGato, gatoEspecifico } from '/src/store.js';
-    import { get } from 'svelte/store';
+    import { llamadoGato, gatoEspecifico } from '/src/store.js'
+    import { get } from 'svelte/store'
+    import { onMount } from 'svelte'
+    import { fade } from 'svelte/transition'
 
     function manejarClick(i, j) {
       llamadoGato.update(n => n + 1);
       gatoEspecifico.set(i+j*4);
     }
 
+      let mostrarBoton = false;
 
+  function manejarScroll() {
+    mostrarBoton = window.scrollY > 300; // ajustá este valor a gusto
+  }
+
+  // Escuchamos el scroll al montar el componente
+  onMount(() => {
+    window.addEventListener('scroll', manejarScroll);
+    return () => window.removeEventListener('scroll', manejarScroll);
+  })
 
     const maxRating = d3.max(series, (d) => d.Rating)
     const minRating = d3.min(series, (d) => d.Rating)
@@ -49,11 +61,20 @@
 
 
 </script>
+{#if mostrarBoton}
+  <button class="volver-a-guia"
+          on:click={() => window.scrollTo({ top: document.getElementById("guia-container").offsetTop, behavior: "smooth" })}
+          transition:fade>
+    Volver a la guía
+  </button>
+{/if}
                     <img
             class="techo"
             src="./images/techoo.svg"
             alt="">
+            
           <div class="mueble">
+            
 <div class="container">
     {#each arr as cuatroG, j}
       <!-- Iteramos la data para visualizar c/ entidad -->
@@ -281,5 +302,34 @@
 
      animation-play-state: paused;
   }
+
+.volver-a-guia {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 12px 20px;
+  z-index: 1000;
+  cursor: pointer;
+
+    background-color: #ffe4f0;
+    color: #5b3c40;
+    border: 2px solid #ffcce1;
+    border-radius: 25px;
+    font-size: 22px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: "Pangolin", cursive;
+}
+.volver-a-guia:hover {
+      filter: brightness(150%);
+    background-color: #ffd6ec;
+    border-color: #ffb6d1;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
 
   </style>
