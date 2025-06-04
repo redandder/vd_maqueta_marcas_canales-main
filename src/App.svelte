@@ -136,8 +136,12 @@
           <CuadroGato />
         
           <div class="cuadro-texto"> 
-            <h2>¡{series[$gatoEspecifico].Nombre} podría ser tu próximo amigo de peluche!</h2>
-            <p>Esta serie es <strong>{series[$gatoEspecifico].Tipo.toLowerCase()}</strong> y tiene <strong>{series[$gatoEspecifico].Duracion}</strong> episodios en total.</p>
+            <h2>¿{series[$gatoEspecifico].Nombre} marcó tu infancia?</h2>
+            {#if series[$gatoEspecifico].Tipo == "Ambas"}
+              <p>Esta serie es tanto <strong>Episódica</strong> como <strong>Serializada</strong> y tiene <strong>{series[$gatoEspecifico].Duracion}</strong> episodios en total.</p>
+            {:else}
+              <p>Esta serie es <strong>{series[$gatoEspecifico].Tipo.toLowerCase()}</strong> y tiene <strong>{series[$gatoEspecifico].Duracion}</strong> episodios en total.</p>
+            {/if}
             <p>Tiene un puntaje de <strong>{series[$gatoEspecifico].Rating}</strong> en IMBD y recaudó <strong>{series[$gatoEspecifico].Ventas.toLocaleString()}</strong> millones de dólares en ventas de juguetes. ¡Un montón!</p>
             <p>¿No te gustaría abrazar a <strong>{series[$gatoEspecifico].Nombre}</strong>?</p>
           </div>
@@ -338,12 +342,13 @@
     
   }
   .cuadro-texto {
-    width: 500px;
-    max-height: 500px;
+    display: inline-block;
     align-items: center;
     margin-left: 20%;
     margin-right: 20%;
     margin-top: 10%;
+    padding: 12px 20px;
+    box-sizing: content-box;
     background-color: #ffe4f0;
     color: #5b3c40;
     border: 2px solid #ffcce1;
@@ -355,21 +360,6 @@
     text-align: center;
 
   }
-  .btn-arriba {
-    position: absolute;
-    z-index: 1000;
-    background-color: #000;
-    color: #fff;
-    padding: 12px 16px;
-    border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-  }
-.btn-arriba:hover {
-  opacity: 1;
-}
 .boton-cerrar-popup {
     margin-top: 20px;
     display: inline-block;
