@@ -40,6 +40,13 @@ html {
     padding: 50px;
     background: #8E2F1A;
 }
+.titulo-nuevo{
+    width:500px;
+    max-width: 90%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 .footer-container{
     text-align: center;
     width: 100%;
