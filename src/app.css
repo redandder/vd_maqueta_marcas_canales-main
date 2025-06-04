@@ -18,6 +18,7 @@
 body {
     background-color: #81C2E8;
     font-family: "Pangolin", cursive;
+    overflow-x: hidden;
 }
 html {
     scroll-behavior: smooth;
