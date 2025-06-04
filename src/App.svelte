@@ -169,33 +169,12 @@
     margin-top: 20px;
     margin-bottom: 80px;
   }
-  .headline {
-    font-size: 40px;
-    font-weight: 300;
-    line-height: 1.2;
-    text-align: center;
-    margin: 20px;
-  }
   .bajada {
     font-size: 24px;
     font-weight: 300;
     text-align: center;
     margin: 10px;
   }
-  .headline b {
-    display: block;
-  }
-  /*
-  .container-gato-especifico{
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin: 50;
-    flex-wrap: wrap;
-   row-gap: 0px;
-    column-gap: 50px;
-  }
-    */
   .gatos-visualizacion{
     background: url("/images/cielo.svg");
     max-width: 3020px;
@@ -243,7 +222,7 @@
     z-index: 0;
   }
   .guia-button, .fondo-nube {
-    transition: all 0.3s ease; /* Animación fluida */
+    transition: all 0.3s ease; 
   }
 
   #guia-container:hover .fondo-nube {
