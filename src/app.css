@@ -96,3 +96,27 @@ a.button:hover {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     transform: scale(1.05);
 }
+.change-section {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 14px 28px;
+    background-color: #ffe4f0;
+    color: #5b3c40;
+    border: 2px solid #ffcce1;
+    border-radius: 25px;
+    font-size: 22px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: "Pangolin", cursive; 
+    text-align: center;       
+}
+.change-section:hover {
+    filter: brightness(150%);
+    background-color: #ffd6ec;
+    border-color: #ffb6d1;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
