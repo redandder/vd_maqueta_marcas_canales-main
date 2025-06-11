@@ -14,9 +14,20 @@
 
     <!-- Llamada reseteo de estilos default: public/css/main.css  -->
     <link rel="stylesheet" href="./css/main.css" />
+
+    <style>
+      .section {
+        display: none;
+      }
+      .active {
+        display: block;
+      }
+    </style>
   </head>
 
   <body>
+    <!-- Sección de inicio, con la visualización de gatos -->
+    <div id="home" class="section active">
     <div class="header-container">
       <div class="header-overlay">
         <h1> <img src="/images/TituloIdea.svg" class="titulo-nuevo" alt=""/></h1>
@@ -26,6 +37,7 @@
     <script type="module" src="/src/main.js"></script>
     <!-- JS for flourish charts -->
     <script src="https://public.flourish.studio/resources/embed.js"></script>
+    <button onclick="loadSection('armar-gato')">Home</button>
     <div class="footer-container">
       <div class="footer-overlay">
         <p>Dataviz creativa | Visualización de Datos</p>
@@ -33,5 +45,30 @@
         <a href="https://github.com/redandder/vd_maqueta_marcas_canales-main" target="_blank" class="button">Ver en GitHub</a>    
       </div>
     </div>
+    </div>
+
+    <!-- Sección en la que la persona puede armar a su propio gato -->
+    <div id="armar-gato" class="section">
+      <p>arma tu gato</p>
+    </div>
+
+    
+  <!-- Tu JS principal -->
+  <script type="module" src="/src/main.js"></script>
+
+  <script>
+    function loadSection(sectionId) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+
+      const target = document.getElementById(sectionId);
+      if (target) {
+        target.classList.add('active');
+      }
+    }
+  </script>
+
   </body>
 </html>
