@@ -28,7 +28,7 @@
         #basket {
             width: 57px;
             height: 91px;
-            background-image: url("./images/prueba_1.png");
+            background-image: url("/images/prueba_1.png");
             position: absolute;
             bottom: 0;
         }
