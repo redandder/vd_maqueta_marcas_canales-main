@@ -14,9 +14,52 @@
 
     <!-- Llamada reseteo de estilos default: public/css/main.css  -->
     <link rel="stylesheet" href="./css/main.css" />
+
+    <style>
+
+            .section.active {
+        opacity: 1;
+        pointer-events: auto;
+        position: relative;
+      }
+      .section {
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transition: opacity 0.5s ease;
+      }
+      .active {
+        display: block;
+      }
+      .fade-in {
+        animation: fadeIn 0.5s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .section {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease, height 0.5s ease;
+}
+
+.section.active {
+  opacity: 1;
+  height: auto;
+  overflow: visible;
+}
+
+    </style>
   </head>
 
   <body>
+    <!-- Sección de inicio, con la visualización de gatos -->
+    <div id="home" class="section active">
     <div class="header-container">
       <div class="header-overlay">
         <h1> <img src="/images/TituloIdea.svg" class="titulo-nuevo" alt=""/></h1>
@@ -26,6 +69,7 @@
     <script type="module" src="/src/main.js"></script>
     <!-- JS for flourish charts -->
     <script src="https://public.flourish.studio/resources/embed.js"></script>
+    <button class="change-section" onclick="loadSection('pre-armar-gato')">Home</button>
     <div class="footer-container">
       <div class="footer-overlay">
         <p>Dataviz creativa | Visualización de Datos</p>
@@ -33,5 +77,39 @@
         <a href="https://github.com/redandder/vd_maqueta_marcas_canales-main" target="_blank" class="button">Ver en GitHub</a>    
       </div>
     </div>
+    </div>
+
+    <!-- Sección en la que se le presenta al usuario la posibilidad de armar un gato-->
+    <div id="pre-armar-gato" class="section">
+      <div class="container-pre-armar">
+        <p>Crea tu propio gato.</p>
+        <button class="change-section" onclick="loadSection('armar-gato')">Empezar</button>
+      </div>
+    </div>
+
+    <!-- Sección en la que la persona puede armar a su propio gato -->
+    <div id="armar-gato" class="section">
+      <div id="app2"></div>
+      <button class="change-section" onclick="loadSection('home')">Volver al inicio</button>
+    </div>
+
+    
+  <!-- Tu JS principal -->
+  <script type="module" src="/src/main.js"></script>
+
+  <script>
+    function loadSection(sectionId) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+
+      const target = document.getElementById(sectionId);
+      if (target) {
+        target.classList.add('active');
+      }
+    }
+  </script>
+
   </body>
 </html>
