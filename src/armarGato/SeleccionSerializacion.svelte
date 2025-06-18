@@ -1,6 +1,8 @@
 <script>
   import {createEventDispatcher} from "svelte";
   export let tipo;
+  import {faPlay} from "@fortawesome/free-solid-svg-icons";
+  import {FontAwesomeIcon} from "@fortawesome/svelte-fontawesome";
 
   const dispatch = createEventDispatcher();
 
@@ -15,13 +17,14 @@
   const siguiente = () => {
     dispatch("next");
   };
+  
 </script>
 
 <div class="selector-tipo">
 <div class="botones">
-  <button on:click={() => cambiar(-1)}>←</button>
+  <button class="boton-flecha" on:click={() => cambiar(-1)}><FontAwesomeIcon icon={faPlay} rotation={180} /></button>
   <span>{tipo}</span>
-  <button on:click={() => cambiar(1)}>→</button>
+  <button class="boton-flecha" on:click={() => cambiar(1)}><FontAwesomeIcon icon={faPlay} /></button>
 </div>
 <button on:click={siguiente}>Siguiente</button>
 </div>
@@ -51,5 +54,18 @@
 
   .seleccionado {
     border-color: black;
+  }
+
+    .boton-flecha {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    padding: 0.2rem;
+    transition: transform 0.2s;
+  }
+
+  .boton-flecha:hover {
+    transform: scale(1.2);
   }
 </style>
