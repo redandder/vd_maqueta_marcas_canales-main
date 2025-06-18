@@ -5,7 +5,6 @@
   import Gatos from "/src/gatos.svelte"
   import {llamadoGato, gatoEspecifico} from "/src/store.js"
   import CuadroGato from "/src/CuadroGato.svelte"
-  import Juego from "/src/juego.svelte";
 
   console.log("series", series)
 
@@ -47,7 +46,7 @@
 
   document.addEventListener('DOMContentLoaded', () => {
   const button = document.querySelector('.guia-button');
-  const nube = document.querySelector('.fondo-nube'); // Selecciona directamente la nube
+  const nube = document.querySelector('.fondo-nube'); 
 
   if (button && nube) {
     button.addEventListener('mouseenter', () => {
@@ -112,7 +111,6 @@
       
 
   </div>
-  <Juego />
 </main>
 
 <style>
