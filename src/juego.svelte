@@ -82,6 +82,7 @@
         var isMovingLeft = false;
         var isMovingRight = false;
         var gameOver = false;
+        var gameStart = true;
         
         startButton.addEventListener("click", startGame);
         document.addEventListener("keydown", handleKeyDown);
@@ -94,6 +95,7 @@
         
         function startGame() {
             startButton.disabled = true;
+            gameStart = false;
             resetGame();
             timerId = setInterval(updateTime, 1000);
             createFruit();
@@ -193,9 +195,9 @@
         function moveBasket() {
             var basketLeft = basket.offsetLeft;
         
-            if (isMovingLeft && basketLeft > 0 && !gameOver) {
+            if (isMovingLeft && basketLeft > 0 && !gameOver &&!gameStart) {
                 basket.style.left = basketLeft - 5 + "px";
-            } else if (isMovingRight && basketLeft + basket.offsetWidth < gameContainer.offsetWidth && !gameOver) {
+            } else if (isMovingRight && basketLeft + basket.offsetWidth < gameContainer.offsetWidth && !gameOver && !gameStart) {
                 basket.style.left = basketLeft + 5  + "px";
             }
         }
