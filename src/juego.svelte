@@ -1,7 +1,3 @@
-
-
-<head>
-    <title>Catch the Fruit</title>
     <style>
         body {
 
@@ -63,8 +59,7 @@
             background-color: #45A049;
         }
     </style>
-</head>
-<body>
+
     <h1 class="titulo_juego">Catch the Fruit</h1>
     <div id="game-container">
         <div id="basket"></div>
@@ -91,6 +86,11 @@
         startButton.addEventListener("click", startGame);
         document.addEventListener("keydown", handleKeyDown);
         document.addEventListener("keyup", handleKeyUp);
+
+        onMount(() => {
+            document.addEventListener("keydown", handleKeyDown);
+            document.addEventListener("keyup", handleKeyUp);
+        });
         
         function startGame() {
             startButton.disabled = true;
@@ -203,5 +203,3 @@
           // todo tu código va acá
     });
     </script>
-</body>
-
