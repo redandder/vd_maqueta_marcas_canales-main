@@ -5,6 +5,7 @@
   import Gatos from "/src/gatos.svelte"
   import {llamadoGato, gatoEspecifico} from "/src/store.js"
   import CuadroGato from "/src/CuadroGato.svelte"
+  import Juego from "/src/juego.svelte";
 
   console.log("series", series)
 
@@ -111,6 +112,7 @@
       
 
   </div>
+  <Juego />
 </main>
 
 <style>
@@ -140,38 +142,7 @@
     background-size: cover;
   }
 
-  .cuadro-gato-especifico {
-    max-width: 3020px;
-    height: 800;
-    display: flex;
-  }
-  .person-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    flex: 180px 0 0;
-  }
-  .person {
-    width: 100px;
-    height: 100px;
-    border: 10px solid black;
-    border-radius: 50%;
-    box-sizing: border-box;
-    background-color: pink;
-  }
-  .nombre {
-    font-size: 13px;
-    font-weight: bold;
-    line-height: 1;
-    text-transform: uppercase;
-    margin: 0;
-    margin-top: 8px;
-  }
-  .referencias {
-    margin-top: 50px;
-    margin-bottom: 20px;
-  }
+  
   .fondo-nube {
     height: 200px;
     position: absolute;
