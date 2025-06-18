@@ -240,6 +240,7 @@
     justify-content: center;
     margin-top: 10px;
   }
+  
   .gatitoImg {
     width: 100px;
     height: 100px;

@@ -74,6 +74,8 @@
     <button id="start-button">Start Game</button>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
         var basket = document.getElementById("basket");
         var scoreLabel = document.getElementById("score");
         var timeLabel = document.getElementById("time");
@@ -103,6 +105,7 @@
             scoreLabel.textContent = score;
             timeLabel.textContent = time;
             basket.style.left = "175px";
+            gameOver = false;
             clearFruits();
         }
         
@@ -196,6 +199,9 @@
                 basket.style.left = basketLeft + 5  + "px";
             }
         }
+
+          // todo tu código va acá
+    });
     </script>
 </body>
 
