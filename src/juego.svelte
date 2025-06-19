@@ -16,9 +16,9 @@
         #game-container {
             width: 400px;
             height: 400px;
-            background-color: #F5F5F5;
             position: relative;
             margin: 50px auto;
+              background:transparent;
         }
         
         #basket {
@@ -58,9 +58,19 @@
         button:hover {
             background-color: #45A049;
         }
+
+        .retro-tv {
+            position: absolute;
+            width: 481px;
+            transform: translateX(97.3%) translateY(-10%);
+        }
     </style>
 
     <h1 class="titulo_juego">Catch the Fruit</h1>
+    <div id="tv-background"><img class="retro-tv"
+          src="./images/retro-tv.svg"
+          alt="">
+    </div>
     <div id="game-container">
         <div id="basket"></div>
     </div>
