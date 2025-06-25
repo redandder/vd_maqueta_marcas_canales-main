@@ -78,7 +78,7 @@
             z-index: 5;
             transform: translateX(107%) translateY(25%);
             box-shadow: 2px 2px 8px rgb(24, 24, 24);
-            background-image: radial-gradient(transparent 70%, grey);
+            background-image: radial-gradient(transparent 50%, rgb(30, 29, 25));
         }
         /*https://stackoverflow.com/questions/70498819/retro-crt-curved-screen-effect-for-website-ccs
         https://codepen.io/msriki12/pen/wBwMzjq*/
