@@ -64,16 +64,41 @@
             width: 481px;
             transform: translateX(97.3%) translateY(-10%);
         }
+        .screen {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            transform: translateX(50%);
+
+        }
+        .bezel {
+            position: absolute;
+            height: 400px;
+            width: 450px;
+            z-index: 5;
+            transform: translateX(107%) translateY(25%);
+            box-shadow: 2px 2px 8px rgb(24, 24, 24);
+            background-image: radial-gradient(transparent 70%, grey);
+        }
+        /*https://stackoverflow.com/questions/70498819/retro-crt-curved-screen-effect-for-website-ccs
+        https://codepen.io/msriki12/pen/wBwMzjq*/
+
     </style>
 
     <h1 class="titulo_juego">Catch the Fruit</h1>
-    <div id="tv-background"><img class="retro-tv"
-          src="./images/retro-tv.svg"
+    <div id="tv-background">          
+        <img class="bezel"
+          src="/images/bezel.png"
           alt="">
+          <img class="retro-tv"
+          src="/images/retro-tv.svg"
+          alt="">
+
     </div>
     <div id="game-container">
         <div id="basket"></div>
     </div>
+
     <p class="texto_juego">Score: <span id="score">0</span></p>
     <p class="texto_juego">Time: <span id="time">30</span></p>
     <button id="start-button">Start Game</button>
