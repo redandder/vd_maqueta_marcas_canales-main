@@ -2,11 +2,16 @@
   import * as d3 from "d3"
   import atletas from "/src/data/athletes.csv"
   import series from "/src/data/SeriesYJuguetes.json"
+  import peliculas from "/src/data/PeliculasYJuguetes.json"
   import Gatos from "/src/gatos.svelte"
+  import Gatos2 from "/src/gatos2.svelte"
   import {llamadoGato, gatoEspecifico} from "/src/store.js"
   import CuadroGato from "/src/CuadroGato.svelte"
+  import CuadroGato2 from "/src/CuadroGato2.svelte"
+  import { fade, slide } from 'svelte/transition';
 
   console.log("series", series)
+  console.log("peliculas", peliculas)
 
   /* 1. Escala para participaciones (cuantitativo > grosor) */
   const minMaxParticipations = d3.extent(atletas, (d) => d.participations)
@@ -29,12 +34,18 @@
     .domain(["América", "África", "Asia", "Europa", "Oceanía"])
     .range(["#ed334e", "#000000", "#fbb132", "#009fe3", "#00963f"])
 
+  let currentGuideImage = 'series';
+
+  let currentDataType = 'series';
+
+  $: currentData = currentDataType === 'series' ? series : peliculas;
+
   function abrirPopup() {
     const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
     document.getElementById('guia-visualizacion').classList.remove('hidden');
     document.getElementById('overlay').classList.remove('hidden');
     document.body.style.overflow = "hidden";
-    document.body.style.paddingRight = "${scrollBarWidth}px";
+    document.body.style.paddingRight = '${scrollBarWidth}px';
   }
 
   function cerrarPopup() {
@@ -42,8 +53,29 @@
     document.getElementById('overlay').classList.add('hidden');
     document.body.style.overflow = "";
     document.body.style.paddingRight = "";
+    currentGuideImage = 'series';
+    $gatoEspecifico = undefined;
+    llamadoGato.set(false);
   }
 
+  function showPreviousGuideImage() {
+        if (currentGuideImage === 'peliculas') {
+            currentGuideImage = 'series';
+        }
+    }
+
+  function showNextGuideImage() {
+        if (currentGuideImage === 'series') {
+            currentGuideImage = 'peliculas';
+        }
+    }
+
+  function changeDataType(type) {
+        currentDataType = type;
+        $gatoEspecifico = undefined;
+        llamadoGato.set(false);
+
+  }
   document.addEventListener('DOMContentLoaded', () => {
   const button = document.querySelector('.guia-button');
   const nube = document.querySelector('.fondo-nube'); 
@@ -66,7 +98,32 @@
 <main>
   <div id="overlay" class="hidden">
     <div id="guia-visualizacion" class="guia-visualizacion hidden">
-        <div><img src="/images/GuiaVisualCorregida.svg" width="950" alt="anillos" /></div>
+                  <button class="nav-arrow left-arrow" on:click={showPreviousGuideImage} disabled={currentGuideImage === 'series'}>&lt;</button>
+
+            <div class="guia-image-wrapper">
+                {#if currentGuideImage === 'series'}
+                    <img
+                        src="/images/GuiaVisualDeSeriesFinal.svg"
+                        alt="Guía Visual de Series"
+                        width="950"
+                        in:fade={{ duration: 500 }}
+                        out:fade={{ duration: 500 }}
+                        class="guia-content-image"
+                    />
+                {:else if currentGuideImage === 'peliculas'}
+                    <img
+                        src="/images/GuiaVisualDePeliculasFinal2.svg"
+                        alt="Guía Visual de Películas"
+                        width="950"
+                        in:fade={{ duration: 500 }}
+                        out:fade={{ duration: 500 }}
+                        class="guia-content-image"
+                    />
+                {/if}
+            </div>
+
+            <button class="nav-arrow right-arrow" on:click={showNextGuideImage} disabled={currentGuideImage === 'peliculas'}>&gt;</button>
+
     <button class="boton-cerrar-popup" on:click={cerrarPopup}>Cerrar</button>
   </div>
   </div>
@@ -84,14 +141,43 @@
         <p>Guía de visualización</p>
       </button>
     </div>
-    <div class="gatos-visualizacion">
-    <Gatos series={series} />
+
+ <div class="data-type-switcher">
+        <button
+            class="change-data-button"
+            class:active={currentDataType === 'series'}
+            on:click={() => changeDataType('series')}
+        >
+            Ver Series
+        </button>
+        
+        <button
+            class="change-data-button"
+            class:active={currentDataType === 'peliculas'}
+            on:click={() => changeDataType('peliculas')}
+        >
+            Ver Películas
+        </button>
     </div>
-<input type="checkbox" id="down" />
+
+    <div class="gatos-visualizacion">
+   {#if currentDataType === 'series'}
+           <Gatos series={series} />
+    {:else if currentDataType === 'peliculas'}
+      <Gatos2 peliculas={peliculas} />
+   {/if}
+ 
+
+    </div>
+  
+ <!--<Gatos series={series} />-->
+
+{#if currentDataType === 'series'}
+  <input type="checkbox" id="down" />
   <div class="seccion4" >
       {#if $gatoEspecifico !== undefined && series[$gatoEspecifico]}
         
-          <CuadroGato />
+          <CuadroGato/>
           <img class="fondo-nube-cuadro"
           src="./images/nube.svg"
           alt="">
@@ -108,9 +194,38 @@
 
       {/if}
       <label for="down"></label>
-      
-
   </div>
+
+  {:else if currentDataType === 'peliculas'}
+
+     <input type="checkbox" id="down" />
+  <div class="seccion4" >
+      {#if $gatoEspecifico !== undefined && peliculas[$gatoEspecifico]}
+        
+          <CuadroGato2/>
+          <img class="fondo-nube-cuadro"
+          src="./images/nube.svg"
+          alt="">
+          <div class="cuadro-texto"> 
+            <h2>¿{peliculas[$gatoEspecifico].Nombre} marcó tu infancia?</h2>
+            {#if peliculas[$gatoEspecifico].Tipo =="2"}
+              <p>Esta pelicula es parte de una saga de <strong>tres o más</strong> películas y dura <strong>{peliculas[$gatoEspecifico].Duracion}</strong> minutos.</p>
+            {:else if peliculas[$gatoEspecifico].Tipo =="1"}
+              <p>Esta pelicula no cuenta con otras que siguen su historia, es solo <strong>{peliculas[$gatoEspecifico].Tipo.toLowerCase()}</strong> y dura <strong>{peliculas[$gatoEspecifico].Duracion}</strong> minutos.</p>
+             {:else}
+              <p>Esta pelicula es parte de una saga de <strong>{peliculas[$gatoEspecifico].Tipo.toLowerCase()}</strong> películas y dura <strong>{peliculas[$gatoEspecifico].Duracion}</strong> minutos.</p>
+              {/if}
+            <p>Tiene un puntaje de <strong>{peliculas[$gatoEspecifico].Rating}</strong> en IMBD y recaudó <strong>{peliculas[$gatoEspecifico].Ventas.toLocaleString()}</strong> millones de dólares en ventas de juguetes. ¡Un montón!</p>
+            <p>¿No te gustaría abrazar a <strong>{peliculas[$gatoEspecifico].Nombre}</strong>?</p>
+          </div>
+
+      {/if}
+      <label for="down"></label>
+  </div>
+  
+
+{/if}
+
 </main>
 
 <style>
@@ -202,9 +317,11 @@
     background-color: unset;
     font-size: 1em;
     color: #3c3c3c;
-    width: 300px;
+    width: auto;
     font-size: 18px;
     user-select: none;
+    border: none; 
+    cursor: pointer;
   }
   .guia-visualizacion {
     position: fixed;
@@ -217,6 +334,11 @@
     z-index: 200;
     text-align: center;
     border-radius: 10%;
+     display: flex; 
+        align-items: center; 
+        justify-content: space-between; 
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+        min-height: 600px; 
   }
   .hidden {
     display: none;
@@ -309,6 +431,10 @@
     transition: all 0.3s ease;
     cursor: pointer;
     font-family: "Pangolin", cursive;
+    position: absolute; 
+        bottom: 20px; 
+        left: 50%; 
+        transform: translateX(-50%); 
 }
 .boton-cerrar-popup:hover {
     filter: brightness(150%);
@@ -316,6 +442,7 @@
     border-color: #ffb6d1;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     transform: scale(1.05);
+    transform: translateX(-50%) scale(1.05);
 }
 .fondo-nube-cuadro {
   position: absolute;
@@ -324,5 +451,88 @@
   z-index: -60;
   left: 45%;
 }
+  .nav-arrow {
+        background-color: #ffcce1;
+        border: none;
+        padding: 10px 15px;
+        font-size: 28px;
+        cursor: pointer;
+        border-radius: 50%;
+        width: 60px; 
+        height: 60px; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        z-index: 210; 
+        color: #8E2F1A; 
+}
+
+.nav-arrow:hover:not(:disabled) {
+        background-color: #ffd6ec;
+        transform: scale(1.1);
+    }
+
+    .nav-arrow:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background-color: #eee; 
+    }
+
+    .guia-image-wrapper {
+        position: relative; 
+        flex-grow: 1; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+        overflow: hidden;
+        min-height: 500px; 
+        width: calc(100% - 120px); 
+    }
+
+    .guia-content-image {
+        max-width: 100%; 
+        height: auto; 
+        position: absolute; 
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+    }
+
+    .data-type-switcher {
+        display: flex;
+        justify-content: center;
+        margin: 40px auto 20px auto; 
+        gap: 20px;
+    }
+
+      .change-data-button {
+        padding: 10px 25px;
+        background-color: #ffffff; 
+        color: #5b3c40; 
+        border: 2px solid #7786e8; 
+        border-radius: 25px;
+        font-family: "Pangolin", cursive;
+        font-size: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    .change-data-button:hover {
+        background-color: #e9e9ff;
+        border-color: #1e2c99;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    }
+
+    .change-data-button.active {
+        background-color: #908cff;
+        color: white;
+        border-color: #1e209a;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        transform: translateY(-1px);
+    }
 
 </style>

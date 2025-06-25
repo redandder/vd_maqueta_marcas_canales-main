@@ -1,8 +1,8 @@
 <script>
   import {createEventDispatcher} from "svelte";
   export let tipo;
-  import {faPlay} from "@fortawesome/free-solid-svg-icons";
-  import {FontAwesomeIcon} from "@fortawesome/svelte-fontawesome";
+  //import {faPlay} from "@fortawesome/free-solid-svg-icons";
+  //import {FontAwesomeIcon} from "@fortawesome/svelte-fontawesome";
 
   const dispatch = createEventDispatcher();
 

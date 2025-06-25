@@ -3,13 +3,12 @@
     import Color from "/src/color.svelte"
     import  Mancha from "/src/mancha.svelte"
     import {gatoEspecifico } from "/src/store.js"
-    import series from "/src/data/SeriesYJuguetes.json"
-    
+    import peliculas from "/src/data/PeliculasYJuguetes.json"
 
-    $: serie = $gatoEspecifico !== null ? series[$gatoEspecifico] : null;
+    $: pelicula = $gatoEspecifico !== null ? peliculas[$gatoEspecifico] : null;
 
-    const maxRating = d3.max(series, (d) => d.Rating)
-    const minRating = d3.min(series, (d) => d.Rating)
+    const maxRating = d3.max(peliculas, (d) => d.Rating)
+    const minRating = d3.min(peliculas, (d) => d.Rating)
     const diamRating = d3.scaleLinear()
         .domain([minRating, maxRating]).range([160, 360])
 
@@ -17,70 +16,70 @@
         .domain([minRating, maxRating]).range([15, 180])
     const manchaH = d3.scaleLinear()
         .domain([minRating, maxRating]).range([15, 180])
-    const maxDuracion = d3.max(series, (d) => d.Duracion)
+    const maxDuracion = d3.max(peliculas, (d) => d.Duracion)
     let colorDuracion = d3.scaleThreshold()
         .domain([ 50, 100, 150,200])
         .range(["#FDF8F2", "#EFCFA9", "#DF9F53", "#AC6C20", "#6C4414"])
-    const maxVentas= d3.max(series, (d) => d.Ventas)
-    const minVentas = d3.min(series, (d) => d.Ventas)
+    const maxVentas= d3.max(peliculas, (d) => d.Ventas)
+    const minVentas = d3.min(peliculas, (d) => d.Ventas)
     let manchaVentas=d3.scaleLinear()
         .domain([minVentas, maxVentas]).range([1, 5])
 
 </script>
 
-{#if serie}
+{#if pelicula}
 
     <div class="contenedor">
               <img class="marco" src="./images/marco-foto.svg"
           alt=""
-          style="height: {diamRating(serie.Rating) * 1.5}px">
+          style="height: {diamRating(pelicula.Rating) * 1.5}px">
     
     <div class="person-container">
 
-      {#if serie.Tipo === "Serializada"}
+      {#if pelicula.Tipo === "1"}
         <img
           class="person"
           src="./images/gatoDer.svg"
           alt=""
           style="
-            width: {diamRating(serie.Rating)*0.674}px; 
-            height: {diamRating(serie.Rating)}px;">
+            width: {diamRating(pelicula.Rating)*0.674}px; 
+            height: {diamRating(pelicula.Rating)}px;">
       {/if}
 
-      {#if serie.Tipo === "Episodica"}
+      {#if pelicula.Tipo === "2"}
         <img
           class="person"
           src="./images/gatoIzq.svg"
           alt=""
           style="
-            width: {diamRating(serie.Rating)*0.674}px; 
-            height: {diamRating(serie.Rating)}px;">
+            width: {diamRating(pelicula.Rating)*0.674}px; 
+            height: {diamRating(pelicula.Rating)}px;">
       {/if}
 
-      {#if serie.Tipo === "Ambas"}
+      {#if pelicula.Tipo ==="3" || pelicula.Tipo==="4" ||pelicula.Tipo==="6"}
         <img
           class="person"
           src="./images/linea-gato-dos.svg"
           alt=""
           style="
-            width: {diamRating(serie.Rating)*0.674}px; 
-            height: {diamRating(serie.Rating)}px;">
+            width: {diamRating(pelicula.Rating)*0.674}px; 
+            height: {diamRating(pelicula.Rating)}px;">
       {/if}
 
       <div class="manchas">
         <Mancha
-          tipo={serie.Tipo}
-          cant={manchaVentas(serie.Ventas)}
-          tamano={diamRating(serie.Rating)*0.674}
-          altura={diamRating(serie.Rating)} />
+          tipo={pelicula.Tipo}
+          cant={manchaVentas(pelicula.Ventas)}
+          tamano={diamRating(pelicula.Rating)*0.674}
+          altura={diamRating(pelicula.Rating)} />
       </div>
 
       <div class="person-color">
         <Color
-          tipo={serie.Tipo}
-          tamano={diamRating(serie.Rating)*0.674}
-          altura={diamRating(serie.Rating)}
-          color={colorDuracion(serie.Duracion)} />
+          tipo={pelicula.Tipo}
+          tamano={diamRating(pelicula.Rating)*0.674}
+          altura={diamRating(pelicula.Rating)}
+          color={colorDuracion(pelicula.Duracion)} />
       </div>
     </div>
   </div>

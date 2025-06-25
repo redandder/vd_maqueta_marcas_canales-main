@@ -1,6 +1,6 @@
 <script>
-  import {faPlay} from "@fortawesome/free-solid-svg-icons";
-  import {FontAwesomeIcon} from "@fortawesome/svelte-fontawesome";
+  //import {faPlay} from "@fortawesome/free-solid-svg-icons";
+  //import {FontAwesomeIcon} from "@fortawesome/svelte-fontawesome";
   import {createEventDispatcher} from "svelte";
 
   export let cantidadManchas;

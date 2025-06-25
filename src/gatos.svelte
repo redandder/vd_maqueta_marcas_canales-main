@@ -8,6 +8,8 @@
     import { onMount } from 'svelte'
     import { fade } from 'svelte/transition'
 
+  
+  let arrdos=[]
     function manejarClick(i, j) {
       llamadoGato.update(n => n + 1);
       gatoEspecifico.set(i+j*4);
@@ -21,26 +23,75 @@
 
   onMount(() => {
     window.addEventListener('scroll', manejarScroll);
+     arrdos = agruparCuatro(series);
     return () => window.removeEventListener('scroll', manejarScroll);
   })
 
-    const maxRating = d3.max(series, (d) => d.Rating)
-    const minRating = d3.min(series, (d) => d.Rating)
-    const diamRating = d3.scaleLinear()
+  let gatos= "series"
+  let orden = "orden_rating"
+  let filtro = "todas"
+	let resaltar = "todas"
+  $: seriePelicu = series;
+
+
+    let maxRating = d3.max(series, (d) => d.Rating)
+    let minRating = d3.min(series, (d) => d.Rating)
+    let diamRating = d3.scaleLinear()
         .domain([minRating, maxRating]).range([80, 180])
 
-    const manchaW = d3.scaleLinear()
+    let manchaW = d3.scaleLinear()
         .domain([minRating, maxRating]).range([15, 180])
-    const manchaH = d3.scaleLinear()
+    let manchaH = d3.scaleLinear()
         .domain([minRating, maxRating]).range([15, 180])
-    const maxDuracion = d3.max(series, (d) => d.Duracion)
+    let maxDuracion = d3.max(series, (d) => d.Duracion)
     let colorDuracion = d3.scaleThreshold()
         .domain([ 50, 100, 150,200])
         .range(["#FDF8F2", "#EFCFA9", "#DF9F53", "#AC6C20", "#6C4414"])
-        const maxVentas= d3.max(series, (d) => d.Ventas)
-    const minVentas = d3.min(series, (d) => d.Ventas)
+        let maxVentas= d3.max(series, (d) => d.Ventas)
+    let minVentas = d3.min(series, (d) => d.Ventas)
     let manchaVentas=d3.scaleLinear()
         .domain([minVentas, maxVentas]).range([1, 5])
+
+  function agruparCuatro( lista){
+    const filas=[];
+     let temp2=[];
+  for(let i = 0; i < seriePelicu.length; i++){
+            temp2.push(seriePelicu[i]);
+      if((i+1) % 4 == 0 || (i + 1) == seriePelicu.length){
+        filas.push(temp2);
+        temp2=[];
+      } 
+  }
+  return filas;
+}
+
+function orderSelection(valorOrden ){
+  orden = valorOrden;
+        if (orden == "orden_ventas") {
+        seriePelicu = d3.sort(series, s => s.Ventas)
+        seriePelicu= d3.reverse(seriePelicu)
+      } else if (orden == "orden_tipo") {
+        seriePelicu = d3.sort(series, escena => escena.Tipo)
+
+      }else if (orden == "orden_rating") {
+        seriePelicu = d3.sort(series, escena => escena.Rating)
+        seriePelicu= d3.reverse(seriePelicu)
+      }
+arrdos=agruparCuatro(seriePelicu)
+console.log("m", arrdos)
+  
+}
+function filterSelection(valorFilter){
+  filtro=valorFilter
+    if (filtro != "todas") {
+    seriePelicu = series.filter(p => p.Tipo == filtro)
+  }else{
+    seriePelicu=series
+  }
+  arrdos=agruparCuatro(seriePelicu)
+
+}
+
 
   let arr= [];
   let temp=[];
@@ -51,19 +102,57 @@
         temp=[];
       } 
 
-
   }
+ 
   console.log("m", arr)
 
 
 
 
 
+
 </script>
+<!--<button on:click={() => gatos = "seriePelicu"} class:active={gatos = "seriePelicu"}>Series</button>
+<button on:click={() => gatos = "peliculas"} class:active={gatos = "peliculas"}>Peliculas</button>-->
+
+<h3>Ordenar</h3>
+<!--
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<button class="btn">ordenar</button>
+<div class="dropdown">
+  <button class="btn" style="border-left:1px solid navy">
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div>-->
+<!-- Cambiamos el valor de la variable orden con el click de los botones -->
+<button on:click={() => orderSelection("orden_ventas")} class:active={orden == "orden_ventas"}>Mas ventas</button>
+<button on:click={() => orderSelection("orden_tipo")} class:active={orden == "orden_tipo"}>Por tipo</button>
+<button on:click={() => orderSelection("orden_rating")} class:active={orden == "orden_rating"}>por rating</button>
+
+<!-- Agregamos reactivamente la clase "actve" de acuerdo al valor de la variable filtro -->
+<h3>Filtrar</h3>
+<!-- Cambiamos el valor de la variable filtro con el click de los botones -->
+<button on:click={() => filterSelection("todas")} class:active={filtro == "todas"}>Todas</button>
+<button on:click={() => filterSelection("Ambas")} class:active={filtro == "Ambas"}>Ambas</button>
+<button on:click={() => filterSelection("Serializada")} class:active={filtro == "Serializada"}>Serializadas</button>
+<button on:click={() => filterSelection("Episodica")} class:active={filtro == "Episodica"}>Episodico</button>
+
+<!-- Agregamos reactivamente la clase "actve" de acuerdo al valor de la variable resaltar 
+<h3>Resaltar</h3>
+<button on:click={() => resaltar = "todas"} class:active={resaltar == "todas"}>Todas</button>
+<button on:click={() => resaltar = "musica"} class:active={resaltar == "musica"}>Música</button>
+<button on:click={() => resaltar = "ogro"} class:active={resaltar == "ogro"}>Ogro</button>
+<button on:click={() => resaltar = "crossover"} class:active={resaltar == "crossover"}>Crossover</button>-->
+
+
 {#if mostrarBoton}
   <button class="volver-a-guia"
-          on:click={() => window.scrollTo({ top: document.getElementById("guia-container").offsetTop, behavior: "smooth" })}
-          transition:fade>
+          on:click={() => window.scrollTo({ top: document.getElementById("guia-container").offsetTop, behavior: "smooth" })} transition:fade>
     Volver a la guía
   </button>
 {/if}
@@ -143,6 +232,47 @@
     </div>
 
 <style>
+.dropdown {
+  position: absolute;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.btn:hover, .dropdown:hover .btn  {
+  background-color: #0b7dda;
+}
+  	button {
+		cursor: pointer;
+	}
+	.active {
+		color: black;
+		background: white;
+	}
   .gatos-con-estante{
             display: flex;
     justify-content: center;
