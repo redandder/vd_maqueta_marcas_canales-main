@@ -8,8 +8,14 @@
     import { onMount } from 'svelte'
     import { fade } from 'svelte/transition'
 
+<<<<<<< HEAD
   
   let arrdos=[]
+=======
+
+
+let arr= [];
+>>>>>>> 60e217d5c123093aa6ded18f8cdbd4d4a07fd589
     function manejarClick(i, j) {
       llamadoGato.update(n => n + 1);
       gatoEspecifico.set(i+j*4);
@@ -23,10 +29,35 @@
 
   onMount(() => {
     window.addEventListener('scroll', manejarScroll);
+<<<<<<< HEAD
      arrdos = agruparCuatro(series);
+=======
+    arr = agruparCuatro(series); 
+>>>>>>> 60e217d5c123093aa6ded18f8cdbd4d4a07fd589
     return () => window.removeEventListener('scroll', manejarScroll);
   })
+let gatos= "series"
+  let orden = "orden_rating"
+  let filtro = "todas"
+	let resaltar = "todas"
+  $: seriePelicu = series;
+/*
+	$: {
+		if (gatos== "seriePelicu") {
+			seriePelicu = seriePelicu
+		} else if (gatos= "peliculas") {
+			seriePelicu = peliculas
+		}
+    
+    if (orden == "orden_ventas") {
+        seriePelicu = d3.sort(series, s => s.Ventas)
+      } else if (orden == "orden_tipo") {
+        seriePelicu = d3.sort(series, escena => escena.Tipo)
+      }else if (orden == "orden_rating") {
+        seriePelicu = d3.sort(series, escena => escena.Rating)
+      }
 
+<<<<<<< HEAD
   let gatos= "series"
   let orden = "orden_rating"
   let filtro = "todas"
@@ -34,6 +65,22 @@
   $: seriePelicu = series;
 
 
+=======
+      if (filtro != "todas") {
+        seriePelicu = series.filter(p => p.Tipo == filtro)
+      }
+*/
+
+/*
+		if (resaltar != "todas") {
+			seriePelicu = seriePelicu.map(p => {
+				let isHighlight = p.Tipo == resaltar
+				return {...p, Highlight: isHighlight}
+			})
+		}
+      */
+	
+>>>>>>> 60e217d5c123093aa6ded18f8cdbd4d4a07fd589
     let maxRating = d3.max(series, (d) => d.Rating)
     let minRating = d3.min(series, (d) => d.Rating)
     let diamRating = d3.scaleLinear()
@@ -52,6 +99,7 @@
     let manchaVentas=d3.scaleLinear()
         .domain([minVentas, maxVentas]).range([1, 5])
 
+<<<<<<< HEAD
   function agruparCuatro( lista){
     const filas=[];
      let temp2=[];
@@ -99,14 +147,55 @@ function filterSelection(valorFilter){
             temp.push(series[i]);
       if((i+1) % 4 == 0 || (i + 1) == series.length){
         arr.push(temp);
+=======
+  
+ 
+  function agruparCuatro( lista){
+    const filas=[];
+     let temp=[];
+  for(let i = 0; i < seriePelicu.length; i++){
+            temp.push(seriePelicu[i]);
+      if((i+1) % 4 == 0 || (i + 1) == seriePelicu.length){
+        filas.push(temp);
+>>>>>>> 60e217d5c123093aa6ded18f8cdbd4d4a07fd589
         temp=[];
       } 
 
   }
+<<<<<<< HEAD
  
+=======
+
+  return filas;
+}
+
+function orderSelection(valorOrden ){
+  orden = valorOrden;
+        if (orden == "orden_ventas") {
+        seriePelicu = d3.sort(series, s => s.Ventas)
+        seriePelicu= d3.reverse(seriePelicu)
+      } else if (orden == "orden_tipo") {
+        seriePelicu = d3.sort(series, escena => escena.Tipo)
+
+      }else if (orden == "orden_rating") {
+        seriePelicu = d3.sort(series, escena => escena.Rating)
+        seriePelicu= d3.reverse(seriePelicu)
+      }
+arr=agruparCuatro(seriePelicu)
+>>>>>>> 60e217d5c123093aa6ded18f8cdbd4d4a07fd589
   console.log("m", arr)
+  
+}
+function filterSelection(valorFilter){
+  filtro=valorFilter
+    if (filtro != "todas") {
+    seriePelicu = series.filter(p => p.Tipo == filtro)
+  }else{
+    seriePelicu=series
+  }
+  arr=agruparCuatro(seriePelicu)
 
-
+}
 
 
 
@@ -150,6 +239,16 @@ function filterSelection(valorFilter){
 <button on:click={() => resaltar = "crossover"} class:active={resaltar == "crossover"}>Crossover</button>-->
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+>>>>>>> 60e217d5c123093aa6ded18f8cdbd4d4a07fd589
 {#if mostrarBoton}
   <button class="volver-a-guia"
           on:click={() => window.scrollTo({ top: document.getElementById("guia-container").offsetTop, behavior: "smooth" })} transition:fade>
@@ -164,6 +263,7 @@ function filterSelection(valorFilter){
           <div class="mueble">
             
 <div class="container">
+
     {#each arr as cuatroG, j}
       <!-- Iteramos la data para visualizar c/ entidad -->
       <div class= "gatos-con-estante">
@@ -232,7 +332,11 @@ function filterSelection(valorFilter){
     </div>
 
 <style>
+<<<<<<< HEAD
 .dropdown {
+=======
+  .dropdown {
+>>>>>>> 60e217d5c123093aa6ded18f8cdbd4d4a07fd589
   position: absolute;
   display: inline-block;
 }
@@ -292,7 +396,7 @@ function filterSelection(valorFilter){
   margin: auto;
     background-color: #F0D786;
       width: 1230px;
-    height: 1420px;
+    
  border: 50px solid transparent;
       border-image-slice: 60;
   border-image-source:url("/images/estante-borde.svg"); 
